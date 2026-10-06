@@ -29,7 +29,7 @@ export default function Steps() {
 
   return (
     <Section id="como-funciona" className="isolate bg-navy text-paper">
-      <BgImage src="/images/steps-bg.webp" sizes="100vw" position="right" />
+      <BgImage src="/images/steps-bg.webp" sizes="100vw" position="right" className="hidden md:block" />
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-36">

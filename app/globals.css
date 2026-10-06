@@ -39,6 +39,8 @@ html {
 }
 
 body {
+  /* rede de segurança contra scroll horizontal no mobile; "clip" (e não "hidden") não quebra o position: sticky */
+  overflow-x: clip;
   background: var(--color-paper);
   color: var(--color-navy);
   font-family: var(--font-sans);

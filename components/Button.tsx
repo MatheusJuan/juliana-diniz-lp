@@ -32,7 +32,7 @@ export default function Button({ href, children, variant = "primary", className 
       href={href}
       onClick={href === whatsappHref ? openWhatsApp : undefined}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full px-7 py-4 text-[0.74rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${variants[variant]} ${className}`}
+      className={`group inline-flex max-w-full items-center justify-center gap-3 rounded-full text-center md:whitespace-nowrap px-7 py-4 text-[0.74rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${variants[variant]} ${className}`}
     >
       {children}
       <ArrowIcon className="transition-transform duration-300 group-hover:translate-x-1" />
