@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Paleta do manual de identidade. sage-300, sage-600, navy-950 e cream são tons derivados
+   (mais claro / mais escuro / fundo) para legibilidade; as cores oficiais seguem intactas. */
+@theme inline {
+  --color-navy: #0f293f;
+  --color-navy-950: #081a29;
+  --color-sage: #6b8373;
+  --color-sage-300: #a9bdaf;
+  --color-sage-600: #587060;
+  --color-sand: #dcd6c8;
+  --color-cream: #f4f1ea;
+  --color-paper: #fcfdfd;
+
+  --font-serif: var(--font-sorts), Georgia, serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-scroll-hint: scroll-hint 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes scroll-hint {
+    0% {
+      transform: translateY(-100%);
+    }
+    60%,
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
+html {
+  background: var(--color-navy-950);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scroll suave (Lenis): regras necessárias do lenis.css. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Barra de rolagem na identidade: trilho marinho profundo, polegar sálvia que clareia no hover. */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border: 3px solid var(--color-navy-950);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-300);
+}
+/* Firefox (no Chrome, scrollbar-color anularia o estilo acima, por isso o @supports). */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-sage) var(--color-navy-950);
+  }
+}
+
+/* Cursor customizado ativo (ponteiro fino): esconde o cursor nativo. */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+/* Sorts Mill Goudy usa números "old-style" por padrão (ISO 14001 vira I4OOI); força números alinhados. */
+.font-serif,
+.h2 {
+  font-variant-numeric: lining-nums;
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-paper);
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-[0.72rem] font-medium uppercase tracking-[0.3em];
+  }
+  .h2 {
+    @apply font-serif text-[clamp(2.2rem,5.2vw,4.5rem)] leading-[1.04] tracking-[-0.02em];
+  }
+  .lead {
+    @apply text-[1.05rem] leading-[1.7] md:text-[1.15rem];
+  }
+}
