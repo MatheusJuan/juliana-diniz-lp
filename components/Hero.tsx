@@ -51,7 +51,7 @@ export default function Hero() {
         className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col px-6 pb-10 pt-28 md:justify-center md:px-12 md:pb-16 md:pt-24"
       >
         <div className="md:max-w-[min(49vw,760px)]">
-          <Reveal waitForReady delay={0.35} y={16}>
+          <Reveal waitForReady delay={0.2} y={16}>
             <p className="eyebrow mb-4 text-paper/80 md:mb-8">{hero.eyebrow}</p>
           </Reveal>
 
@@ -60,20 +60,20 @@ export default function Hero() {
             text={hero.title}
             by="char"
             waitForReady
-            delay={0.45}
+            delay={0.3}
             highlightClassName="text-sage-300"
             className="font-serif text-[clamp(2.2rem,7.6vw,6.2rem)] md:text-[clamp(2.6rem,4.6vw,4.6rem)] leading-[1.02] tracking-[-0.025em]"
           />
         </div>
 
         {/* Mobile: subtítulo junto do título (grupo único no topo) e CTAs no pé da tela */}
-        <Reveal waitForReady delay={1.15} className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
+        <Reveal waitForReady delay={0.8} className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
           <p className="max-w-[34rem] text-[0.98rem] leading-[1.6] text-paper/90 md:text-[1.18rem] md:leading-[1.65]">
             {hero.subtitle}
           </p>
         </Reveal>
 
-        <Reveal waitForReady delay={1.3} className="mt-auto md:mt-10">
+        <Reveal waitForReady delay={0.95} className="mt-auto md:mt-10">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button href={whatsappHref}>{hero.cta}</Button>
             <Button href="#solucoes" variant="outline">
@@ -84,7 +84,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Destaque de credibilidade: só no desktop, à direita da foto */}
-      <Reveal waitForReady delay={1.6} y={10} className="absolute right-12 top-[30%] z-10 hidden w-[min(18vw,280px)] md:block">
+      <Reveal waitForReady delay={1.2} y={10} className="absolute right-12 top-[30%] z-10 hidden w-[min(18vw,280px)] md:block">
         <div className="flex gap-5 rounded-[1.25rem] border border-paper/15 bg-navy/55 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md lg:p-7">
           <span aria-hidden className="w-0.5 shrink-0 bg-sage-300" />
           <p className="font-serif text-[clamp(1.15rem,1.7vw,1.6rem)] leading-snug text-paper">{hero.credibility}</p>

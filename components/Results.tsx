@@ -57,7 +57,7 @@ function FlipCard({ item, i, progress, active }: { item: Item; i: number; progre
         >
           <div className="pointer-events-none absolute h-[70%] w-[70%] rounded-full bg-sage/25 blur-[90px]" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo/monograma-fundo-escuro.svg" alt="" className="relative h-[42%] w-auto" />
+          <img src="/logo/monograma-fundo-escuro.svg" alt="" width={552} height={647} className="relative h-[42%] w-auto" />
         </div>
       </motion.div>
     </motion.div>

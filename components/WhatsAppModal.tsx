@@ -103,7 +103,7 @@ export default function WhatsAppModal() {
             className="relative grid w-full max-w-[60rem] overflow-hidden rounded-[1.75rem] border border-paper/10 bg-navy-950 text-paper shadow-[0_40px_120px_-20px_rgba(0,0,0,0.7)] md:grid-cols-2"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/hero-mobile.webp" alt="" className="hidden h-full w-full object-cover object-[50%_55%] md:block" />
+            <img src="/images/hero-mobile.webp" alt="" width={1672} height={941} loading="lazy" className="hidden h-full w-full object-cover object-[50%_55%] md:block" />
 
             <div className="relative p-7 md:p-12">
               <button
