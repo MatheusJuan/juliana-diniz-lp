@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const MIN_MS = 1100;
+const MIN_MS = 800;
 const EASE = [0.76, 0, 0.24, 1] as const;
 
 export default function Preloader({ onExit }: { onExit: () => void }) {
@@ -44,13 +44,13 @@ export default function Preloader({ onExit }: { onExit: () => void }) {
           key="preloader"
           aria-hidden
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy"
-          exit={{ y: "-100%", transition: { duration: 0.8, ease: EASE } }}
+          exit={{ y: "-100%", transition: { duration: 0.7, ease: EASE } }}
         >
           <motion.div exit={{ opacity: 0, y: -40, transition: { duration: 0.5 } }} className="flex flex-col items-center">
             <motion.div
               initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0, scale: 0.94 }}
               animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1, scale: 1 }}
-              transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
