@@ -49,7 +49,7 @@ export const hero = {
   eyebrow: "Consultoria em sustentabilidade e ESG",
   title: "ESG que sai do papel e entra na [[estratégia do seu]] negócio.",
   subtitle:
-    "Estratégia, finanças sustentáveis, clima e relatórios, desenhados junto com a sua empresa e conduzidos ao lado do seu time.",
+    "Cliente, banco ou índice cobrando dados de sustentabilidade? Construímos a estratégia com a sua empresa e conduzimos a execução ao lado do seu time.",
   cta: "Vamos conversar",
   ctaSecondary: "Conheça as soluções",
   credibility: "Mais de 20 anos conectando estratégia, clima e operação.",
@@ -83,17 +83,38 @@ export const costs = {
       ] as Source[],
     },
     {
-      title: "Reputação e talentos",
-      body: "Compromisso sem estratégia, meta e transparência não se sustenta diante de clientes, investidores e talentos.",
-      sources: [] as Source[],
-    },
-    {
       title: "Regras que mudam",
       body: "As regras oscilam: em maio de 2026, a CVM tornou voluntário o reporte IFRS S1/S2 para companhias abertas. A cobrança de clientes e do mercado financeiro continua. Quem tem estratégia própria se adapta a qualquer cenário.",
       sources: [
         {
           label: "Mayer Brown, 2026",
           href: "https://www.mayerbrown.com/pt/insights/publications/2026/06/copy-of-cvm-torna-facultativa-a-divulgacao-de-reportes-financeiros-relacionados-a-sustentabilidade-ifrs-s1-e-s2-para-as-companhias-abertas",
+        },
+      ] as Source[],
+    },
+    {
+      title: "Reputação e talentos",
+      body: "Talentos, consumidores e investidores estão atentos à coerência entre discurso e prática. No Brasil, 83% dos profissionais desempregados dizem que boas iniciativas ESG pesam ao aceitar uma vaga, e só 20% dos consumidores confiam nas promessas de sustentabilidade das marcas (81% as questionam, em outra pesquisa). Lá fora, 94% dos investidores veem afirmações sem comprovação nos relatórios de sustentabilidade, e 70% da Geração Z e dos millennials dão peso ao ambiental ao escolher empregador.",
+      sources: [
+        {
+          label: "Robert Half, 2021",
+          href: "https://forbes.com.br/negocios/2021/06/83-dos-profissionais-levam-praticas-de-esg-em-consideracao-antes-de-aceitar-oferta-de-emprego/",
+        },
+        {
+          label: "Ilumeo, 2026",
+          href: "https://www.portaltela.com/noticias/economia/2026/05/25/apenas-20-dos-brasileiros-confiam-em-promessas-de-sustentabilidade-das-marcas/",
+        },
+        {
+          label: "Getty Images, 2025",
+          href: "https://mundodomarketing.com.br/silencio-de-empresas-sobre-as-proprias-acoes-sustentaveis-desagrada-consumidores-brasileiros",
+        },
+        {
+          label: "PwC, 2023",
+          href: "https://www.pwc.com/gx/en/issues/c-suite-insights/global-investor-survey/global-investor-survey-2023.html",
+        },
+        {
+          label: "Deloitte, 2025",
+          href: "https://esgtoday.com/70-of-gen-z-millennials-consider-environmental-sustainability-important-in-choosing-employers-deloitte-survey",
         },
       ] as Source[],
     },
@@ -127,21 +148,25 @@ export const solutions = {
     {
       icon: "estrategia",
       title: "Estratégia e Governança de Sustentabilidade",
+      for: "Para dar direção ao ESG e sair do improviso.",
       body: "Plano estratégico para atender às diretrizes de sustentabilidade do negócio: estruturação de Comissão ESG, planos de ação e indicadores de desempenho.",
     },
     {
       icon: "financas-sustentaveis",
       title: "Finanças sustentáveis",
-      body: "Estruturação de framework para captação de recursos verdes, acesso a financiamentos para projetos sustentáveis, preparação para SPO (Second Party Opinion) e interface com a instituição financeira.",
+      for: "Para abrir a conversa com bancos e acessar crédito atrelado a metas ESG.",
+      body: "Estruturação de framework para captação de recursos verdes, acesso a financiamentos para projetos sustentáveis, preparação para o SPO (Second Party Opinion, o parecer independente sobre o framework) e interface com a instituição financeira.",
     },
     {
       icon: "mudancas-climaticas",
       title: "Mudanças climáticas",
+      for: "Para responder à cobrança climática de clientes e do mercado.",
       body: "Plano estratégico para estruturar a gestão climática, com foco em mitigação e adaptação.",
     },
     {
       icon: "relatorios-indices-esg",
       title: "Relatórios, índices e reportes ESG",
+      for: "Para responder questionários e índices sem correria.",
       body: "Condução e suporte ao time operacional na elaboração, asseguração e publicação do relatório de sustentabilidade, conforme o framework adotado (IFRS S1/S2, SASB, GRI e IIRC). Gestão das respostas a índices e reportes como ISE, ICO2, CDP, CSA S&P e MSCI. Assessoria às áreas em questionários de avaliação ESG, como a avaliação de fornecedores.",
     },
   ],
@@ -287,6 +312,15 @@ export const faq = {
   eyebrow: "Perguntas",
   title: "Perguntas [[frequentes]]",
   items: [
+    {
+      q: "Recebi um questionário ESG de um cliente. Faz sentido conversar?",
+      a: "Faz. Apoiar o atendimento das demandas de clientes, do mercado financeiro e de índices faz parte do trabalho, seja para responder o que já chegou, seja para se preparar para o próximo pedido.",
+    },
+    {
+      q: "Quanto custa e quanto tempo leva?",
+      a: "Depende do escopo e do formato escolhido, Assessoria ou Gerência “as a service”. A conversa inicial serve para entender o seu cenário.",
+      placeholder: "Faixa de investimento e prazo típico · a definir",
+    },
     {
       q: "A solução já vem pronta?",
       a: "Não. Nada de prateleira: cada solução é construída junto com a empresa, porque é ela quem conhece o negócio.",

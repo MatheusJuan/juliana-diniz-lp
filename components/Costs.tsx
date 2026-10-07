@@ -57,8 +57,8 @@ const VEIL = "linear-gradient(90deg, rgba(8,26,43,.6), rgba(8,26,43,.25) 55%, rg
 
 const cardBgs = [
   { src: "/images/costs-2-credito.webp", pos: "right bottom" },
-  { src: "/images/costs-3-talentos.webp", pos: "left top" },
   { src: "/images/costs-4-regras.webp", pos: "right center" },
+  { src: "/images/costs-3-talentos.webp", pos: "left top" },
 ];
 
 export default function Costs() {
@@ -85,15 +85,15 @@ export default function Costs() {
         </Reveal>
       </div>
 
-      <div className="relative mt-16 grid gap-4 md:mt-24 lg:grid-cols-3">
-        <Reveal className="lg:col-span-3">
+      <div className="relative mt-16 grid gap-4 md:mt-24 lg:grid-cols-6">
+        <Reveal className="lg:col-span-6">
           <article
-            className="relative isolate flex h-full min-h-[22rem] flex-col justify-between gap-12 overflow-hidden rounded-[2rem] border border-paper/10 bg-[#0a2033] p-8 md:min-h-[26rem] md:p-12"
+            className="relative isolate flex h-full flex-col gap-8 overflow-hidden rounded-[2rem] border border-paper/10 bg-[#0a2033] p-8 md:gap-6 md:p-10"
           >
             <BgImage src="/images/costs-1-rede.webp" sizes="(min-width: 1320px) 1250px, 100vw" veil={VEIL} />
             <p className="eyebrow text-paper/70">{stat.title}</p>
-            <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-              <p className="font-serif text-[clamp(6.5rem,16vw,14rem)] leading-[0.85] tracking-[-0.04em] [text-shadow:0_0_90px_rgba(169,189,175,0.5)]">
+            <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <p className="font-serif text-[clamp(6rem,13vw,11rem)] leading-[0.85] tracking-[-0.04em] [text-shadow:0_0_90px_rgba(169,189,175,0.5)]">
                 <CountUp to={stat.value} />
                 <span className="text-[0.36em] tracking-normal">{stat.suffix}</span>
               </p>
@@ -107,11 +107,11 @@ export default function Costs() {
         </Reveal>
 
         {costs.cards.map((c, i) => (
-          <Reveal key={c.title} delay={0.1 * (i + 1)}>
+          <Reveal key={c.title} delay={0.1 * (i + 1)} className={i === costs.cards.length - 1 ? "lg:col-span-6" : "lg:col-span-3"}>
             <article className="relative isolate h-full rounded-[1.75rem] border border-paper/10 bg-[#0a2033] p-7 md:p-8">
-              <BgImage src={cardBgs[i].src} sizes="(min-width: 1024px) 420px, 100vw" position={cardBgs[i].pos} veil={VEIL} />
+              <BgImage src={cardBgs[i].src} sizes="(min-width: 1024px) 620px, 100vw" position={cardBgs[i].pos} veil={VEIL} />
               <h3 className="font-serif text-[1.75rem] leading-tight">{c.title}</h3>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-paper/75">{c.body}</p>
+              <p className="mt-3 max-w-[52rem] text-[0.95rem] leading-relaxed text-paper/75">{c.body}</p>
               <SourceLinks sources={c.sources} />
             </article>
           </Reveal>

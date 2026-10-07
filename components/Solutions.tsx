@@ -52,6 +52,7 @@ export default function Solutions() {
                 className="h-[4.5rem] w-[4.5rem] transition-transform duration-700 group-hover:rotate-[8deg] group-hover:scale-105"
               />
               <h3 className="mt-7 font-serif text-[1.85rem] leading-[1.1] tracking-[-0.01em] md:text-[2.1rem]">{s.title}</h3>
+              <p className="mt-3 text-[0.98rem] font-medium leading-snug text-sage-600">{s.for}</p>
               <p className="mt-4 text-[0.98rem] leading-[1.7] text-navy/75">{s.body}</p>
             </article>
           </Reveal>
