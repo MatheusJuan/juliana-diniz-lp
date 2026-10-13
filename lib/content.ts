@@ -51,7 +51,7 @@ export const hero = {
     "Requisitos de clientes, mercado financeiro, índices ou estratégia global sobre os aspectos ESG? Assessoramos a implantação da sustentabilidade na estratégia do seu negócio e conduzimos a execução ao lado do seu time.",
   cta: "Vamos conversar",
   ctaSecondary: "Conheça as soluções",
-  credibility: "Mais de 20 anos conectando estratégia, clima e operação.",
+  credibility: "Mais de 20 anos atuando de forma integrada na operação e na estratégia do negócio.",
 };
 
 type Source = { label: string; href: string };
