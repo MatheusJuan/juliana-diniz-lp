@@ -1,6 +1,5 @@
 import About from "@/components/About";
 import Costs from "@/components/Costs";
-import Faq from "@/components/Faq";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -33,7 +32,6 @@ export default function Home() {
         <Pillars />
         <Results />
         <About />
-        <Faq />
         <FinalCta />
       </main>
       <Footer />

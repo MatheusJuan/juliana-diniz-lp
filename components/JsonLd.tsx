@@ -1,4 +1,4 @@
-import { about, faq, solutions, whatsappHref, WHATSAPP, LINKEDIN } from "@/lib/content";
+import { about, solutions, whatsappHref, WHATSAPP, LINKEDIN } from "@/lib/content";
 import { LAST_MODIFIED, OG_IMAGE, SEO, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const id = (fragment: string) => `${SITE_URL}/#${fragment}`;
@@ -14,7 +14,6 @@ const topics = [
   "Relatórios de sustentabilidade",
   "Índices e ratings ESG",
   "Gestão ambiental",
-  "ISO 14001",
 ];
 
 // Dados estruturados (schema.org) montados a partir do mesmo conteúdo da página.
@@ -104,16 +103,6 @@ export default function JsonLd() {
         worksFor: { "@id": id("organization") },
         sameAs: [LINKEDIN],
         knowsAbout: topics,
-      },
-      {
-        "@type": "FAQPage",
-        "@id": id("faq"),
-        isPartOf: { "@id": id("webpage") },
-        mainEntity: faq.items.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
       },
     ],
   };

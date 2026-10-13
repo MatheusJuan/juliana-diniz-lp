@@ -62,18 +62,18 @@ export default function Hero() {
             waitForReady
             delay={0.2}
             highlightClassName="text-sage-300"
-            className="font-serif text-[clamp(2.2rem,7.6vw,6.2rem)] md:text-[clamp(2.6rem,4.6vw,4.6rem)] leading-[1.02] tracking-[-0.025em]"
+            className="text-balance font-serif text-[clamp(2.2rem,7.6vw,6.2rem)] md:text-[clamp(2.4rem,3.9vw,3.9rem)] leading-[1.04] tracking-[-0.025em]"
           />
         </div>
 
         {/* Mobile: subtítulo junto do título (grupo único no topo) e CTAs no pé da tela */}
         <div className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
-          <p className="max-w-[34rem] text-[0.98rem] leading-[1.6] text-paper/90 md:text-[1.18rem] md:leading-[1.65]">
+          <p className="max-w-[34rem] text-[0.92rem] leading-[1.5] text-paper/90 md:text-[1.18rem] md:leading-[1.65]">
             {hero.subtitle}
           </p>
         </div>
 
-        <Reveal waitForReady delay={0.4} className="mt-auto md:mt-10">
+        <Reveal waitForReady delay={0.4} className="mt-auto pt-5 md:mt-10 md:pt-0">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button href={whatsappHref}>{hero.cta}</Button>
             <Button href="#solucoes" variant="outline">

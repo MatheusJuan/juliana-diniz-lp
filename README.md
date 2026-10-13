@@ -27,7 +27,7 @@ Domínio final previsto: `https://julianadinizesg.com.br` (ainda não ativo). Tu
 | `NEXT_PUBLIC_NOINDEX=true` | Staging: robots.txt `Disallow: /`, meta `noindex` e header `X-Robots-Tag`. |
 
 - **Metadados:** título, descrição, canonical, `hreflang pt-BR`, Open Graph e Twitter em `app/layout.tsx`. Imagem de compartilhamento: `public/og.jpg` (1200×630).
-- **JSON-LD:** `components/JsonLd.tsx` (WebSite, WebPage, Organization/ProfessionalService, Person, Service/OfferCatalog, FAQPage), montado a partir de `lib/content.ts`. Quando houver número de WhatsApp, entra `contactPoint`; o LinkedIn entra como `sameAs` da Person.
+- **JSON-LD:** `components/JsonLd.tsx` (WebSite, WebPage, Organization/ProfessionalService, Person, Service/OfferCatalog; o FAQPage saiu junto com a seção de perguntas), montado a partir de `lib/content.ts`. Quando houver número de WhatsApp, entra `contactPoint`; o LinkedIn entra como `sameAs` da Person.
 - **Arquivos gerados:** `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, ícones (`app/icon.svg`, `app/apple-icon.png`, `app/favicon.ico`, `public/icon-192.png`, `public/icon-512.png`) e `app/not-found.tsx`. Atualizar `LAST_MODIFIED` em `lib/site.ts` quando o conteúdo mudar.
 - **Headers de segurança e redirects:** `next.config.ts` (HSTS, CSP em produção, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP/COEP). A CSP mantém `'unsafe-inline'` em script e style porque a página é estática; endurecer exige nonce com renderização dinâmica.
 - **HTTPS forçado:** o redirect `http→https` e `www→apex` está no `next.config.ts` e depende do proxy enviar `x-forwarded-proto`. Na hospedagem, ative também "forçar HTTPS" e o redirect de www.

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { about } from "@/lib/content";
+import { about, LINKEDIN } from "@/lib/content";
 import BgImage from "./BgImage";
 import Reveal from "./Reveal";
 import Section, { Placeholder } from "./Section";
@@ -37,7 +37,14 @@ export default function About() {
             </motion.div>
             <Reveal delay={0.4} className="mt-6">
               <p className="font-serif text-2xl">{about.name}</p>
-              <p className="mt-1 text-[0.85rem] tracking-wide text-paper/65">{about.role}</p>
+              <a
+                href={LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center rounded-full border border-sage-300/60 px-3.5 py-1.5 text-[0.7rem] uppercase tracking-[0.14em] transition-colors hover:bg-sage-300 hover:text-navy"
+              >
+                LinkedIn ↗
+              </a>
             </Reveal>
           </div>
         </div>
@@ -47,12 +54,6 @@ export default function About() {
             <p className="eyebrow mb-6 text-sage-300">{about.eyebrow}</p>
           </Reveal>
           <SplitText as="h2" text={about.title} className="h2" highlightClassName="italic text-sage-300" />
-
-          <Reveal delay={0.1}>
-            <blockquote className="mt-12 border-l border-sage-300 pl-6 font-serif text-[1.7rem] italic leading-snug text-sage-300 md:text-[2.1rem]">
-              “{about.quote}”
-            </blockquote>
-          </Reveal>
 
           <div className="mt-10 space-y-5 text-[1.02rem] leading-[1.8] text-paper/80 md:text-[1.08rem]">
             {about.paragraphs.map((p) => (

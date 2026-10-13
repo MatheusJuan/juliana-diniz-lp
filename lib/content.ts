@@ -42,14 +42,13 @@ export const nav = [
   { label: "Soluções", href: "#solucoes" },
   { label: "Como funciona", href: "#como-funciona" },
   { label: "Quem conduz", href: "#quem-conduz" },
-  { label: "Perguntas", href: "#perguntas" },
 ];
 
 export const hero = {
   eyebrow: "Consultoria em sustentabilidade e ESG",
-  title: "ESG que sai do papel e entra na [[estratégia do seu]] negócio.",
+  title: "Integrando a sustentabilidade [[ao modelo de negócio,]] construindo o caminho juntos.",
   subtitle:
-    "Cliente, banco ou índice cobrando dados de sustentabilidade? Construímos a estratégia com a sua empresa e conduzimos a execução ao lado do seu time.",
+    "Requisitos de clientes, mercado financeiro, índices ou estratégia global sobre os aspectos ESG? Assessoramos a implantação da sustentabilidade na estratégia do seu negócio e conduzimos a execução ao lado do seu time.",
   cta: "Vamos conversar",
   ctaSecondary: "Conheça as soluções",
   credibility: "Mais de 20 anos conectando estratégia, clima e operação.",
@@ -143,31 +142,31 @@ export const marquee = [
 export const solutions = {
   eyebrow: "Soluções",
   title: "Soluções desenhadas [[junto com a sua empresa]]",
-  lead: "Nada de prateleira. Cada solução parte do seu negócio, porque quem o conhece é você.",
+  lead: "Cada empresa tem o seu contexto. Partimos da sua necessidade e construímos a solução junto com quem conhece o negócio por dentro.",
   items: [
     {
       icon: "estrategia",
       title: "Estratégia e Governança de Sustentabilidade",
-      for: "Para dar direção ao ESG e sair do improviso.",
-      body: "Plano estratégico para atender às diretrizes de sustentabilidade do negócio: estruturação de Comissão ESG, planos de ação e indicadores de desempenho.",
+      for: "Para dar direção ao ESG e sair do “sob demanda”.",
+      body: "Plano estratégico para atender às diretrizes de sustentabilidade do negócio: conectando a estratégia à operação.",
     },
     {
       icon: "financas-sustentaveis",
       title: "Finanças sustentáveis",
-      for: "Para abrir a conversa com bancos e acessar crédito atrelado a metas ESG.",
-      body: "Estruturação de framework para captação de recursos verdes, acesso a financiamentos para projetos sustentáveis, preparação para o SPO (Second Party Opinion, o parecer independente sobre o framework) e interface com a instituição financeira.",
+      for: "Para apoiar na conversa com bancos sobre créditos atrelados às práticas ESG.",
+      body: "Estruturação de framework para financiamento de projetos sustentáveis, preparação para o SPO (Second Party Opinion, o parecer independente sobre o framework) e interface com a instituição financeira.",
     },
     {
       icon: "mudancas-climaticas",
       title: "Mudanças climáticas",
-      for: "Para responder à cobrança climática de clientes e do mercado.",
-      body: "Plano estratégico para estruturar a gestão climática, com foco em mitigação e adaptação.",
+      for: "Para mensurar, mitigar e se adaptar à mudança do clima.",
+      body: "Plano estratégico para estruturar a gestão climática do negócio.",
     },
     {
       icon: "relatorios-indices-esg",
       title: "Relatórios, índices e reportes ESG",
-      for: "Para responder questionários e índices sem correria.",
-      body: "Condução e suporte ao time operacional na elaboração, asseguração e publicação do relatório de sustentabilidade, conforme o framework adotado (IFRS S1/S2, SASB, GRI e IIRC). Gestão das respostas a índices e reportes como ISE, ICO2, CDP, CSA S&P e MSCI. Assessoria às áreas em questionários de avaliação ESG, como a avaliação de fornecedores.",
+      for: "Para conduzir a elaboração de relatórios e respostas a questionários e índices de forma planejada, com fluidez.",
+      body: "Condução e suporte ao time na elaboração, asseguração e publicação do relatório de sustentabilidade. Assessoria às áreas nas respostas aos índices e reportes como ISE, ICO2, CDP, CSA S&P e MSCI, e questionários de avaliação ESG, como a avaliação de fornecedores.",
     },
   ],
   cta: "Falar sobre a minha necessidade",
@@ -180,12 +179,12 @@ export const moments = {
     {
       tag: "Assessoria",
       who: "Para quem está estruturando a agenda.",
-      body: "Implantação e desdobramento da sustentabilidade na estratégia do negócio: o que importa, quem decide e o que medir.",
+      body: "Implantação e desdobramento da sustentabilidade para a estratégia do negócio: fazendo a interface entre estratégia e operação.",
     },
     {
       tag: "Gerência ESG “as a service”",
       who: "Para quem tem a agenda e precisa de quem conduza.",
-      body: "Condução e execução junto ao time operacional na implementação da estratégia e das diretrizes ESG, com interface entre as áreas da empresa, lado a lado com a liderança.",
+      body: "Condução e execução junto ao time na implementação da estratégia e das diretrizes ESG, com interface entre as áreas da empresa, lado a lado com a liderança.",
     },
   ],
   common:
@@ -196,24 +195,24 @@ export const moments = {
 export const steps = {
   eyebrow: "Como funciona",
   title: "Um caminho [[construído junto]]",
-  note: "É sobre uma jornada: caminhar, aprender e ser transparente.",
+  note: "É sobre uma jornada: caminhar, aprender e aprimorar continuamente.",
   cta: "Começar pela conversa",
   items: [
     {
       title: "Escuta",
-      body: "Entender o negócio, a operação e as demandas que já chegam: clientes, mercado financeiro, índices.",
+      body: "Entender o negócio, a operação e as demandas que já chegam: clientes, mercado financeiro, índices ou estratégia global.",
     },
     {
       title: "Foco",
-      body: "Definir o que é prioridade para o negócio (materialidade) e onde concentrar esforço.",
+      body: "Definir com a empresa o que é prioridade para o negócio e onde concentrar esforço.",
     },
     {
       title: "Estratégia",
-      body: "Desenhar com a empresa o plano de ação, a governança, as metas e os indicadores.",
+      body: "Desenhar o plano de ação a ser implementado.",
     },
     {
       title: "Implantação e evolução",
-      body: "Conduzir junto ao time operacional, conectar as áreas e evoluir relatórios, índices e acesso a capital.",
+      body: "Conduzir junto ao time operacional, conectar as áreas e avançar com práticas sustentáveis.",
     },
   ],
 };
@@ -289,8 +288,7 @@ export const results = {
 
 export const about = {
   eyebrow: "Quem conduz",
-  title: "Experiência de quem já esteve [[do lado de quem contrata]]",
-  quote: "Já estive do lado de quem contrata o serviço.",
+  title: "Experiência de quem já esteve [[na execução]]",
   paragraphs: [
     "Há cerca de duas décadas, atuo na interseção entre meio ambiente, sustentabilidade e estratégia de negócio. Sou engenheira ambiental e construí minha trajetória em empresas de grande porte, liderando agendas que vão da operação ao corporativo, da proposição de estratégia à implantação de processos, com definição de metas e indicadores, com foco em sustentabilidade e mudanças climáticas.",
     "Conecto diretrizes à realidade da operação, com liderança humanizada e transparente, sem perder objetividade nem compromisso com resultado.",
@@ -299,11 +297,11 @@ export const about = {
   role: "Engenheira ambiental e consultora em sustentabilidade e ESG",
   highlights: [
     { k: "Atuação", t: "Empresas de infraestrutura e de alimentos e bebidas, como Motiva/CCR e Nestlé." },
+    { k: "Sustentabilidade", t: "Gestão de área corporativa de Sustentabilidade, contribuindo com o aprimoramento contínuo das diretrizes e estratégias de ESG." },
     { k: "Meio Ambiente", t: "Implantação e gestão da área em unidade operacional, da formação da equipe ao licenciamento e à operação." },
-    { k: "ISO 14001", t: "Implantação, certificação e manutenção da ISO 14001:2004 em duas unidades fabris." },
-    { k: "Responsabilidade Social", t: "Coordenação de Responsabilidade Social e Comunicação, com Investimento Social Privado." },
-    { k: "Liderança", t: "Equipe multidisciplinar: engenharia, biologia, jornalismo, administração e responsabilidade social." },
-    { k: "Internacional", t: "Eventos de sustentabilidade: COP 16 (Colômbia), Equador e Costa Rica." },
+    { k: "Responsabilidade Social", t: "Coordenação das áreas de Responsabilidade Social e Comunicação." },
+    { k: "Liderança", t: "Equipe multidisciplinar nas áreas Humanas, Exatas e Biológicas." },
+    { k: "Internacional", t: "Experiência em eventos relacionados ao tema de sustentabilidade: COP 16 (Colômbia), Equador e Costa Rica." },
   ],
   placeholder: "Formação acadêmica, pós-graduação e certificações · a definir",
 };
