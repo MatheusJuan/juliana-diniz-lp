@@ -169,6 +169,7 @@ export const solutions = {
       body: "Condução e suporte ao time na elaboração, asseguração e publicação do relatório de sustentabilidade. Assessoria às áreas nas respostas aos índices e reportes como ISE, ICO2, CDP, CSA S&P e MSCI, e questionários de avaliação ESG, como a avaliação de fornecedores.",
     },
   ],
+  closing: "Preparar-se antes dá tempo de escolher o caminho.",
   cta: "Falar sobre a minha necessidade",
 };
 

@@ -60,7 +60,8 @@ export default function Solutions() {
         ))}
       </div>
 
-      <Reveal className="mt-14 flex justify-center">
+      <Reveal className="mt-14 flex flex-col items-center gap-8 text-center md:mt-20">
+        <p className="max-w-[26rem] font-serif text-[1.7rem] leading-snug text-navy md:text-[2rem]">{solutions.closing}</p>
         <Button href={whatsappHref}>{solutions.cta}</Button>
       </Reveal>
     </Section>
