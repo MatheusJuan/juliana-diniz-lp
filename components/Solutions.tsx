@@ -3,6 +3,7 @@ import { solutions, whatsappHref } from "@/lib/content";
 import BgImage from "./BgImage";
 import Button from "./Button";
 import En from "./En";
+import Marquee from "./Marquee";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import SplitText from "./SplitText";
@@ -64,6 +65,8 @@ export default function Solutions() {
         <p className="max-w-[26rem] font-serif text-[1.7rem] leading-snug text-navy md:text-[2rem]">{solutions.closing}</p>
         <Button href={whatsappHref}>{solutions.cta}</Button>
       </Reveal>
+
+      <Marquee />
     </Section>
   );
 }

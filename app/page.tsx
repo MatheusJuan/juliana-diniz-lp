@@ -1,5 +1,4 @@
 import About from "@/components/About";
-import Costs from "@/components/Costs";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -25,7 +24,6 @@ export default function Home() {
       <Header />
       <main id="conteudo" className="relative">
         <Hero />
-        <Costs />
         <Solutions />
         <Moments />
         <Steps />

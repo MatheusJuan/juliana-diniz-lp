@@ -61,6 +61,7 @@ export const costs = {
   title: "Quem adia ESG não escapa da cobrança. Só perde tempo para responder.",
   intro:
     "Sua empresa já sabe o que é ESG. O risco está em ser cobrada antes de estar preparada.",
+  // `stat` e `cards` ficam fora da página; guardados para a seção unificada com Resultados.
   stat: {
     value: 45,
     suffix: " mil+",

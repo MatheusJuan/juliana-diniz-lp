@@ -23,8 +23,8 @@ type Mode = "idle" | "link" | "down";
 const RING_SHADOW = "0 0 0 1.5px rgba(8,26,41,0.7), inset 0 0 0 1.5px rgba(8,26,41,0.7), 0 6px 28px rgba(8,26,41,0.28)";
 
 /**
- * Cursor customizado nas cores da marca: ponto exato + anel que segue com mola. Sobre links e botões o anel
- * cresce e vira uma lente sálvia com seta; ao clicar, encolhe.
+ * Cursor customizado nas cores da marca: setinha com a ponta no ponto exato, sem anel. Sobre links e botões
+ * a seta some e uma lente sálvia com seta, que segue com mola, cresce no lugar; ao clicar, a seta encolhe.
  */
 export default function Cursor() {
   const fine = useFinePointer();
@@ -100,7 +100,8 @@ export default function Cursor() {
             className="absolute inset-0 h-full w-full rounded-full border-2 border-sage-300"
             initial={false}
             animate={{
-              scale: link ? 1.9 : pressed ? 0.78 : 1,
+              scale: link ? 1.9 : 0.4,
+              opacity: link ? 1 : 0,
               backgroundColor: link ? "rgba(169,189,175,0.94)" : "rgba(169,189,175,0)",
             }}
             style={{ boxShadow: RING_SHADOW }}
@@ -123,14 +124,24 @@ export default function Cursor() {
         </motion.div>
       </motion.div>
 
+      {/* Setinha: a ponta (3, 2 do viewBox) fica no ponto exato do ponteiro. */}
       <motion.div aria-hidden className="pointer-events-none fixed left-0 top-0 z-[9999]" style={{ x, y }}>
-        <motion.div
-          className="-ml-[0.35rem] -mt-[0.35rem] h-[0.7rem] w-[0.7rem] rounded-full bg-sage-300"
-          style={{ boxShadow: "0 0 0 2px #081a29" }}
+        <motion.svg
+          viewBox="0 0 24 24"
+          className="-ml-[3px] -mt-[2px] h-6 w-6 overflow-visible"
+          style={{ transformOrigin: "3px 2px" }}
           initial={false}
-          animate={{ scale: link ? 0 : pressed ? 1.8 : 1, opacity: shown ? 1 : 0 }}
+          animate={{ scale: link ? 0 : pressed ? 0.85 : 1, opacity: shown ? 1 : 0 }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        />
+        >
+          <path
+            d="M3 2 16.9 15.75 8.75 16.25 3 22Z"
+            fill="#a9bdaf"
+            stroke="#081a29"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        </motion.svg>
       </motion.div>
     </>
   );
