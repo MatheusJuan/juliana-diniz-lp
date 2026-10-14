@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { hero, whatsappHref } from "@/lib/content";
 import Button from "./Button";
 import { useReady } from "./Providers";
@@ -14,13 +15,48 @@ export default function Hero() {
   const textY = useTransform(scrollY, [0, 700], [0, -60]);
   const fade = useTransform(scrollY, [0, 600], [1, 0.15]);
 
+  // Mobile: texto no topo, rosto no meio e botões embaixo, sem nada sobre o rosto. A foto começa logo abaixo
+  // do subtítulo (medido com offset, que ignora o transform do scroll); se a tela for baixa demais para o
+  // conjunto, o hero cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
+  const subRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const [fit, setFit] = useState<{ imgTop: number; need: number } | null>(null);
+  useEffect(() => {
+    const sub = subRef.current;
+    const cta = ctaRef.current;
+    const content = sub?.offsetParent as HTMLElement | null;
+    const section = content?.parentElement;
+    if (!sub || !cta || !content || !section) return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => {
+      if (!mq.matches) return setFit(null);
+      const imgTop = content.offsetTop + sub.offsetTop + sub.offsetHeight + 16;
+      const head = ((900 - 572) * section.clientWidth) / 941; // do cabelo ao queixo, na escala da foto
+      setFit({ imgTop, need: Math.ceil(Math.max(660, imgTop + head + 20 + cta.offsetHeight + 40)) });
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(sub);
+    ro.observe(content);
+    mq.addEventListener("change", update);
+    document.fonts?.ready.then(update);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener("change", update);
+    };
+  }, []);
+
   return (
     <section
       id="inicio"
       className="sticky top-0 z-0 h-svh min-h-[660px] overflow-hidden bg-navy text-paper"
+      style={fit ? { minHeight: fit.need, top: `min(0px, calc(100svh - ${fit.need}px))` } : undefined}
     >
       {/* Imagem: abre com zoom-out e cresce de leve ao rolar (sem deslocar, para não expor borda) */}
-      <motion.div style={{ scale: imgScale }} className="absolute inset-x-0 bottom-0 top-[12svh] md:inset-0">
+      <motion.div
+        style={fit ? { scale: imgScale, top: fit.imgTop } : { scale: imgScale }}
+        className="absolute inset-x-0 bottom-0 top-[12svh] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_16%)] md:inset-0 md:overflow-visible md:[mask-image:none]"
+      >
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.16 }}
@@ -32,7 +68,7 @@ export default function Hero() {
             <img
               src="/images/hero-mobile.webp"
               alt="Juliana Diniz, consultora em sustentabilidade e ESG"
-              className="h-full w-full object-cover object-[50%_0%] md:object-[70%_22%]"
+              className="block h-auto w-full max-w-none -translate-y-[33%] md:h-full md:translate-y-0 md:object-cover md:object-[70%_22%]"
               fetchPriority="high"
               width={1672}
               height={941}
@@ -44,7 +80,7 @@ export default function Hero() {
       {/* Leitura do texto: gradiente à esquerda no desktop, embaixo no mobile */}
       <div aria-hidden className="absolute inset-y-0 left-0 hidden w-[68%] bg-linear-to-r from-navy via-navy/55 to-transparent md:block" />
       <div aria-hidden className="absolute inset-x-0 top-0 h-[42%] bg-linear-to-b from-navy/85 via-navy/40 to-transparent md:hidden" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-[38%] bg-linear-to-t from-navy via-navy/65 to-transparent md:h-[28%] md:via-navy/40" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-[11.5rem] bg-linear-to-t from-navy via-navy/65 to-transparent md:h-[28%] md:via-navy/40" />
 
       <motion.div
         style={{ y: textY, opacity: fade }}
@@ -62,19 +98,19 @@ export default function Hero() {
             waitForReady
             delay={0.2}
             highlightClassName="text-sage-300"
-            className="text-balance font-serif text-[clamp(2.2rem,7.6vw,6.2rem)] md:text-[clamp(2.4rem,3.9vw,3.9rem)] leading-[1.04] tracking-[-0.025em]"
+            className="text-balance font-serif text-[clamp(1.9rem,calc((100vw-3rem)/8.3),3.4rem)] md:text-[clamp(2.4rem,3.9vw,3.9rem)] leading-[1.04] tracking-[-0.025em]"
           />
         </div>
 
         {/* Mobile: subtítulo junto do título (grupo único no topo) e CTAs no pé da tela */}
-        <div className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
+        <div ref={subRef} className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
           <p className="max-w-[34rem] text-[0.92rem] leading-[1.5] text-paper/90 md:text-[1.18rem] md:leading-[1.65]">
             {hero.subtitle}
           </p>
         </div>
 
         <Reveal waitForReady delay={0.4} className="mt-auto pt-5 md:mt-10 md:pt-0">
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div ref={ctaRef} className="flex flex-col gap-3 sm:flex-row">
             <Button href={whatsappHref}>{hero.cta}</Button>
             <Button href="#solucoes" variant="outline">
               {hero.ctaSecondary}
@@ -84,10 +120,10 @@ export default function Hero() {
       </motion.div>
 
       {/* Destaque de credibilidade: só no desktop, à direita da foto */}
-      <Reveal waitForReady delay={0.5} y={10} className="absolute right-12 top-[30%] z-10 hidden w-[min(18vw,280px)] md:block">
-        <div className="flex gap-5 rounded-[1.25rem] border border-paper/15 bg-navy/55 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md lg:p-7">
+      <Reveal waitForReady delay={0.5} y={10} className="absolute right-12 top-[30%] z-10 hidden w-[min(17vw,240px)] md:block">
+        <div className="flex gap-4 rounded-[1rem] border border-paper/15 bg-navy/55 p-4 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md lg:p-5">
           <span aria-hidden className="w-0.5 shrink-0 bg-sage-300" />
-          <p className="font-serif text-[clamp(1.15rem,1.7vw,1.6rem)] leading-snug text-paper">{hero.credibility}</p>
+          <p className="font-serif text-[clamp(0.95rem,1.15vw,1.15rem)] leading-snug text-paper">{hero.credibility}</p>
         </div>
       </Reveal>
 
