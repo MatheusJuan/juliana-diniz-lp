@@ -56,15 +56,17 @@ export default function Steps() {
             />
             {steps.items.map((s, i) => (
               <li key={s.title} className="relative pb-14 pl-16 last:pb-0 md:pl-24">
+                {/* Fora do Reveal: um ancestral com transform vira o referencial do `absolute`, e o círculo
+                    nascia deslocado (sobre o título) até a animação terminar. */}
+                <span
+                  data-dot
+                  className={`absolute left-0 top-0 grid h-[2.8rem] w-[2.8rem] place-items-center rounded-full border text-[0.8rem] tracking-[0.1em] transition-colors duration-500 md:h-[3.8rem] md:w-[3.8rem] md:text-[0.95rem] ${
+                    i < reached ? "border-sage-300 bg-sage-300 text-navy" : "border-paper/25 bg-navy text-sage-300"
+                  }`}
+                >
+                  0{i + 1}
+                </span>
                 <Reveal>
-                  <span
-                    data-dot
-                    className={`absolute left-0 top-0 grid h-[2.8rem] w-[2.8rem] place-items-center rounded-full border text-[0.8rem] tracking-[0.1em] transition-colors duration-500 md:h-[3.8rem] md:w-[3.8rem] md:text-[0.95rem] ${
-                      i < reached ? "border-sage-300 bg-sage-300 text-navy" : "border-paper/25 bg-navy text-sage-300"
-                    }`}
-                  >
-                    0{i + 1}
-                  </span>
                   <h3 className="font-serif text-[2rem] leading-tight tracking-[-0.01em] md:text-[2.7rem]">{s.title}</h3>
                   <p className="mt-4 max-w-[30rem] leading-[1.7] text-paper/75">{s.body}</p>
                 </Reveal>

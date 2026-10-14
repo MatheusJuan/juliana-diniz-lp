@@ -16,11 +16,12 @@ export default function Hero() {
   const fade = useTransform(scrollY, [0, 600], [1, 0.15]);
 
   // Mobile: texto no topo, rosto no meio e botões embaixo, sem nada sobre o rosto. A foto começa logo abaixo
-  // do subtítulo (medido com offset, que ignora o transform do scroll); se a tela for baixa demais para o
-  // conjunto, o hero cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
+  // do subtítulo (medido com offset, que ignora o transform do scroll) e cresce para ocupar o espaço que sobra
+  // até o fim da tela (`scale`: px por px da foto original). Se a tela for baixa demais para o conjunto, o hero
+  // cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
   const subRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const [fit, setFit] = useState<{ imgTop: number; need: number } | null>(null);
+  const [fit, setFit] = useState<{ imgTop: number; need: number; scale: number; width: number } | null>(null);
   useEffect(() => {
     const sub = subRef.current;
     const cta = ctaRef.current;
@@ -31,8 +32,18 @@ export default function Hero() {
     const update = () => {
       if (!mq.matches) return setFit(null);
       const imgTop = content.offsetTop + sub.offsetTop + sub.offsetHeight + 16;
-      const head = ((900 - 572) * section.clientWidth) / 941; // do cabelo ao queixo, na escala da foto
-      setFit({ imgTop, need: Math.ceil(Math.max(660, imgTop + head + 20 + cta.offsetHeight + 40)) });
+      const widthScale = section.clientWidth / 941;
+      const head = (900 - 572) * widthScale; // do cabelo ao queixo, na escala da foto
+      const need = Math.ceil(Math.max(660, imgTop + head + 20 + cta.offsetHeight + 40));
+      // Altura real do hero = a maior entre a tela (100svh) e `need`; a parte útil da foto (do topo cortado
+      // até o fim) tem 1120px na escala original.
+      const probe = document.createElement("div");
+      probe.style.cssText = "position:fixed;visibility:hidden;width:0;height:100svh";
+      document.body.appendChild(probe);
+      const screenH = probe.offsetHeight;
+      probe.remove();
+      const scale = Math.max(widthScale, (Math.max(screenH, need) - imgTop) / 1120);
+      setFit({ imgTop, need, scale, width: section.clientWidth });
     };
     update();
     const ro = new ResizeObserver(update);
@@ -69,6 +80,7 @@ export default function Hero() {
               src="/images/hero-mobile.webp"
               alt="Juliana Diniz, consultora em sustentabilidade e ESG"
               className="block h-auto w-full max-w-none -translate-y-[33%] md:h-full md:translate-y-0 md:object-cover md:object-[70%_22%]"
+              style={fit ? { width: 941 * fit.scale, marginLeft: (fit.width - 941 * fit.scale) / 2 } : undefined}
               fetchPriority="high"
               width={1672}
               height={941}
@@ -88,7 +100,10 @@ export default function Hero() {
       >
         <div className="md:max-w-[min(49vw,760px)]">
           <Reveal waitForReady delay={0.1} y={16}>
-            <p className="eyebrow mb-4 text-paper/80 md:mb-8">{hero.eyebrow}</p>
+            {/* Sempre em uma linha: no mobile a fonte acompanha a largura da tela e o espaçamento entre letras diminui. */}
+            <p className="eyebrow mb-4 whitespace-nowrap text-[clamp(0.5rem,calc((100vw-3rem)/30),0.72rem)] tracking-[0.12em] text-paper/80 md:mb-8 md:text-[0.72rem] md:tracking-[0.3em]">
+              {hero.eyebrow}
+            </p>
           </Reveal>
 
           <SplitText
@@ -98,7 +113,7 @@ export default function Hero() {
             waitForReady
             delay={0.2}
             highlightClassName="text-sage-300"
-            className="text-balance font-serif text-[clamp(1.9rem,calc((100vw-3rem)/8.3),3.4rem)] md:text-[clamp(2.4rem,3.9vw,3.9rem)] leading-[1.04] tracking-[-0.025em]"
+            className="text-balance font-serif text-[clamp(1.4rem,calc((100vw-3rem)/14),2rem)] md:text-[clamp(2.4rem,3.9vw,3.9rem)] leading-[1.04] tracking-[-0.025em]"
           />
         </div>
 
