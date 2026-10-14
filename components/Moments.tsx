@@ -1,6 +1,7 @@
 import { moments, whatsappHref } from "@/lib/content";
 import BgImage from "./BgImage";
 import Button from "./Button";
+import En from "./En";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import SplitText from "./SplitText";
@@ -31,7 +32,7 @@ export default function Moments() {
                 <BgImage src={dark ? "/images/moments-1-navy.webp" : "/images/moments-2-cream.webp"} sizes="(min-width: 768px) 650px, 100vw" />
                 <p className={`eyebrow max-w-[70%] leading-relaxed md:max-w-[55%] ${dark ? "text-sage-300" : "text-sage"}`}>{c.who}</p>
                 <div className="mt-24">
-                  <h3 className="font-serif text-[2.2rem] leading-[1.05] tracking-[-0.01em] md:text-[2.8rem]">{c.tag}</h3>
+                  <h3 className="font-serif text-[2.2rem] leading-[1.05] tracking-[-0.01em] md:text-[2.8rem]"><En>{c.tag}</En></h3>
                   <p className={`mt-5 max-w-[28rem] leading-[1.7] ${dark ? "text-paper/80" : "text-navy/75"}`}>{c.body}</p>
                 </div>
               </article>

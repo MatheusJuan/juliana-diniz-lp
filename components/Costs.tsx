@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { costs, whatsappHref } from "@/lib/content";
 import BgImage from "./BgImage";
 import Button from "./Button";
+import En from "./En";
 import Marquee from "./Marquee";
 import Reveal from "./Reveal";
 import Section from "./Section";
@@ -111,7 +112,7 @@ export default function Costs() {
             <article className="relative isolate h-full rounded-[1.75rem] border border-paper/10 bg-[#0a2033] p-7 md:p-8">
               <BgImage src={cardBgs[i].src} sizes="(min-width: 1024px) 620px, 100vw" position={cardBgs[i].pos} veil={VEIL} />
               <h3 className="font-serif text-[1.75rem] leading-tight">{c.title}</h3>
-              <p className="mt-3 max-w-[52rem] text-[0.95rem] leading-relaxed text-paper/75">{c.body}</p>
+              <p className="mt-3 max-w-[52rem] text-[0.95rem] leading-relaxed text-paper/75"><En>{c.body}</En></p>
               <SourceLinks sources={c.sources} />
             </article>
           </Reveal>

@@ -188,7 +188,7 @@ export const moments = {
     },
   ],
   common:
-    "Nos dois formatos, apoio ao atendimento das demandas ESG de clientes, do mercado financeiro, de índices e reportes, ou de uma estratégia global.",
+    "Nos dois formatos, apoio ao atendimento das demandas ESG de clientes, do mercado financeiro, de índices e reportes ou de uma estratégia global.",
   cta: "Conversar sobre o meu momento",
 };
 
@@ -212,7 +212,7 @@ export const steps = {
     },
     {
       title: "Implantação e evolução",
-      body: "Conduzir junto ao time operacional, conectar as áreas e avançar com práticas sustentáveis.",
+      body: "Conduzir junto ao time, conectar as áreas e avançar com práticas sustentáveis.",
     },
   ],
 };
@@ -355,7 +355,6 @@ export const footer = {
   placeholders: [
     "WhatsApp · a definir",
     "E-mail · a definir",
-    "Razão social e CNPJ · a definir",
   ],
   copyright: "© 2026 Juliana Diniz Sustentabilidade",
 };

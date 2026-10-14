@@ -1,4 +1,5 @@
 import { marquee } from "@/lib/content";
+import En from "./En";
 
 // Faixa contínua com os temas de atuação (a lista é duplicada para o loop não ter emenda).
 export default function Marquee() {
@@ -14,7 +15,7 @@ export default function Marquee() {
             key={`${w}-${i}`}
             className="whitespace-nowrap rounded-full border border-paper/15 px-6 py-3 text-[0.8rem] tracking-wide text-paper/70"
           >
-            {w}
+            <En>{w}</En>
           </li>
         ))}
       </ul>

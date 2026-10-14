@@ -2,6 +2,7 @@ import Image from "next/image";
 import { solutions, whatsappHref } from "@/lib/content";
 import BgImage from "./BgImage";
 import Button from "./Button";
+import En from "./En";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import SplitText from "./SplitText";
@@ -53,7 +54,7 @@ export default function Solutions() {
               />
               <h3 className="mt-7 font-serif text-[1.85rem] leading-[1.1] tracking-[-0.01em] md:text-[2.1rem]">{s.title}</h3>
               <p className="mt-3 text-[0.98rem] font-medium leading-snug text-sage-600">{s.for}</p>
-              <p className="mt-4 text-[0.98rem] leading-[1.7] text-navy/75">{s.body}</p>
+              <p className="mt-4 text-[0.98rem] leading-[1.7] text-navy/75"><En>{s.body}</En></p>
             </article>
           </Reveal>
         ))}

@@ -3,6 +3,7 @@
 import { motion, useMotionValueEvent, useScroll, useTransform, type MotionValue } from "motion/react";
 import { useRef, useState } from "react";
 import { results } from "@/lib/content";
+import En from "./En";
 import Reveal from "./Reveal";
 import SplitText from "./SplitText";
 
@@ -35,9 +36,9 @@ function FlipCard({ item, i, progress, active }: { item: Item; i: number; progre
         <article className="absolute inset-0 flex flex-col overflow-hidden rounded-[2rem] bg-paper p-5 shadow-[0_30px_60px_-30px_rgba(15,41,63,0.45)] [backface-visibility:hidden] md:p-10">
           <span className="eyebrow self-start rounded-full bg-sage/15 px-4 py-2 text-sage-600">{item.tag}</span>
           <p className="mt-5 whitespace-nowrap font-serif text-[clamp(2.4rem,3.6vw,3.9rem)] leading-none tracking-[-0.03em] md:mt-8">{item.stat}</p>
-          <p className="mt-2 text-[0.72rem] uppercase tracking-[0.16em] text-navy/55 md:text-[0.8rem]">{item.statLabel}</p>
+          <p className="mt-2 text-[0.72rem] uppercase tracking-[0.16em] text-navy/55 md:text-[0.8rem]"><En>{item.statLabel}</En></p>
           <h3 className="mt-4 font-serif text-[1.2rem] leading-tight md:mt-8 md:text-[1.6rem]">{item.title}</h3>
-          <p className="mt-2 text-[0.8rem] leading-[1.5] text-navy/75 md:mt-3 md:text-[0.95rem] md:leading-[1.7]">{item.body}</p>
+          <p className="mt-2 text-[0.8rem] leading-[1.5] text-navy/75 md:mt-3 md:text-[0.95rem] md:leading-[1.7]"><En>{item.body}</En></p>
           <a
             href={item.source.href}
             target="_blank"
