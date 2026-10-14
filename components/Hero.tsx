@@ -15,13 +15,14 @@ export default function Hero() {
   const textY = useTransform(scrollY, [0, 700], [0, -60]);
   const fade = useTransform(scrollY, [0, 600], [1, 0.15]);
 
-  // Mobile: texto no topo, rosto no meio e botões embaixo, sem nada sobre o rosto. A foto começa logo abaixo
-  // do subtítulo (medido com offset, que ignora o transform do scroll) e cresce para ocupar o espaço que sobra
-  // até o fim da tela (`scale`: px por px da foto original). Se a tela for baixa demais para o conjunto, o hero
-  // cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
+  // Mobile: texto no topo (sobre a faixa marinho da foto), rosto no meio e botões embaixo, sem nada sobre o
+  // rosto. A foto (884x2000: topo marinho chapado, cabelo em y 960, queixo em ~1220) é posicionada para o
+  // cabelo ficar logo abaixo do subtítulo (medido com offset, que ignora o transform do scroll) e cresce, se
+  // preciso, para cobrir até o fim da tela (`scale`: px por px da foto original). Se a tela for baixa demais
+  // para o conjunto, o hero cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
   const subRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const [fit, setFit] = useState<{ imgTop: number; need: number; scale: number; width: number } | null>(null);
+  const [fit, setFit] = useState<{ top: number; need: number; scale: number; width: number } | null>(null);
   useEffect(() => {
     const sub = subRef.current;
     const cta = ctaRef.current;
@@ -31,19 +32,18 @@ export default function Hero() {
     const mq = window.matchMedia("(max-width: 767px)");
     const update = () => {
       if (!mq.matches) return setFit(null);
-      const imgTop = content.offsetTop + sub.offsetTop + sub.offsetHeight + 16;
-      const widthScale = section.clientWidth / 941;
-      const head = (900 - 572) * widthScale; // do cabelo ao queixo, na escala da foto
-      const need = Math.ceil(Math.max(660, imgTop + head + 20 + cta.offsetHeight + 40));
-      // Altura real do hero = a maior entre a tela (100svh) e `need`; a parte útil da foto (do topo cortado
-      // até o fim) tem 1120px na escala original.
+      const hairAt = content.offsetTop + sub.offsetTop + sub.offsetHeight + 24; // onde o cabelo deve ficar
+      const widthScale = section.clientWidth / 884;
+      const head = (1240 - 960) * widthScale; // do cabelo ao pescoço, na escala da foto
+      const need = Math.ceil(Math.max(660, hairAt + head + 20 + cta.offsetHeight + 72)); // 72 = respiro sob os botões
+      // Altura real do hero = a maior entre a tela (100svh) e `need`; do cabelo ao pé da foto há 1040px.
       const probe = document.createElement("div");
       probe.style.cssText = "position:fixed;visibility:hidden;width:0;height:100svh";
       document.body.appendChild(probe);
       const screenH = probe.offsetHeight;
       probe.remove();
-      const scale = Math.max(widthScale, (Math.max(screenH, need) - imgTop) / 1120);
-      setFit({ imgTop, need, scale, width: section.clientWidth });
+      const scale = Math.max(widthScale, (Math.max(screenH, need) - hairAt) / 1040);
+      setFit({ top: hairAt - 960 * scale, need, scale, width: section.clientWidth });
     };
     update();
     const ro = new ResizeObserver(update);
@@ -60,14 +60,11 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="sticky top-0 z-0 h-svh min-h-[660px] overflow-hidden bg-navy text-paper"
+      className="sticky top-0 z-0 h-svh min-h-[660px] overflow-hidden bg-[#0b1e35] text-paper md:bg-navy"
       style={fit ? { minHeight: fit.need, top: `min(0px, calc(100svh - ${fit.need}px))` } : undefined}
     >
       {/* Imagem: abre com zoom-out e cresce de leve ao rolar (sem deslocar, para não expor borda) */}
-      <motion.div
-        style={fit ? { scale: imgScale, top: fit.imgTop } : { scale: imgScale }}
-        className="absolute inset-x-0 bottom-0 top-[12svh] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_16%)] md:inset-0 md:overflow-visible md:[mask-image:none]"
-      >
+      <motion.div style={{ scale: imgScale }} className="absolute inset-0 overflow-hidden md:overflow-visible">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.16 }}
@@ -79,8 +76,10 @@ export default function Hero() {
             <img
               src="/images/hero-mobile.webp"
               alt="Juliana Diniz, consultora em sustentabilidade e ESG"
-              className="block h-auto w-full max-w-none -translate-y-[33%] md:h-full md:translate-y-0 md:object-cover md:object-[70%_22%]"
-              style={fit ? { width: 941 * fit.scale, marginLeft: (fit.width - 941 * fit.scale) / 2 } : undefined}
+              className="absolute left-0 top-0 h-auto w-full max-w-none md:static md:block md:h-full md:object-cover md:object-[70%_22%]"
+              style={
+                fit ? { width: 884 * fit.scale, left: (fit.width - 884 * fit.scale) / 2, top: fit.top } : undefined
+              }
               fetchPriority="high"
               width={1672}
               height={941}
@@ -91,12 +90,11 @@ export default function Hero() {
 
       {/* Leitura do texto: gradiente à esquerda no desktop, embaixo no mobile */}
       <div aria-hidden className="absolute inset-y-0 left-0 hidden w-[68%] bg-linear-to-r from-navy via-navy/55 to-transparent md:block" />
-      <div aria-hidden className="absolute inset-x-0 top-0 h-[42%] bg-linear-to-b from-navy/85 via-navy/40 to-transparent md:hidden" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-[11.5rem] bg-linear-to-t from-navy via-navy/65 to-transparent md:h-[28%] md:via-navy/40" />
 
       <motion.div
         style={{ y: textY, opacity: fade }}
-        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col px-6 pb-10 pt-28 md:justify-center md:px-12 md:pb-16 md:pt-24"
+        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col px-6 pb-[4.5rem] pt-28 md:justify-center md:px-12 md:pb-16 md:pt-24"
       >
         <div className="md:max-w-[min(49vw,760px)]">
           <Reveal waitForReady delay={0.1} y={16}>
