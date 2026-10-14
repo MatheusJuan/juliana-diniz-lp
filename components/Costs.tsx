@@ -119,14 +119,9 @@ export default function Costs() {
         ))}
       </div>
 
-      <div className="relative mt-16 flex flex-col items-start justify-between gap-8 md:mt-24 md:flex-row md:items-center">
-        <Reveal>
-          <p className="max-w-[26rem] font-serif text-[1.7rem] leading-snug md:text-[2rem]">{costs.closing}</p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <Button href={whatsappHref}>{costs.cta}</Button>
-        </Reveal>
-      </div>
+      <Reveal className="mt-16 flex justify-center md:mt-24">
+        <Button href={whatsappHref}>{costs.cta}</Button>
+      </Reveal>
 
       <Marquee />
     </Section>

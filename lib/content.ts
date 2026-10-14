@@ -118,6 +118,7 @@ export const costs = {
       ] as Source[],
     },
   ],
+  // Oculto na página; fica guardado para a seção unificada.
   closing: "Preparar-se antes dá tempo de escolher o caminho. Vamos juntos.",
   cta: "Vamos conversar",
 };
