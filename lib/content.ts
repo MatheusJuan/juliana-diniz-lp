@@ -150,7 +150,7 @@ export const solutions = {
       icon: "estrategia",
       title: "Estratégia e Governança de Sustentabilidade",
       for: "Para dar direção ao ESG e sair do “sob demanda”.",
-      body: "Plano estratégico para atender às diretrizes de sustentabilidade do negócio: conectando a estratégia à operação.",
+      body: "Plano estratégico para atender as diretrizes de sustentabilidade do negócio: conectando a estratégia à operação.",
     },
     {
       icon: "financas-sustentaveis",
@@ -222,23 +222,14 @@ export const steps = {
 
 export const pillars = {
   eyebrow: "Jeito de trabalhar",
-  title: "Parceria no lugar de [[pacote pronto]]",
-  lead: "Um trabalho construído com a sua empresa, do planejamento à operação.",
+  title: "[[Complementaridade]]",
+  lead: "Soluções construídas com a empresa, do planejamento à operação.",
+  // "Complementaridade" e "Foco" saíram a pedido da cliente (14–15/10/2026); "Foco" já aparece em "Como funciona".
   items: [
-    {
-      icon: "parceria",
-      title: "Complementaridade",
-      body: "Soluções construídas com a empresa, porque é ela quem conhece o seu negócio.",
-    },
     {
       icon: "lideranca-equipe",
       title: "Conexão",
       body: "Das diretrizes à realidade da operação: entre liderança, áreas e time operacional.",
-    },
-    {
-      icon: "materialidade",
-      title: "Foco",
-      body: "Sustentabilidade ligada à estratégia, com eficiência e potencialização de valor.",
     },
     {
       icon: "crescimento-sustentavel",
@@ -293,7 +284,7 @@ export const about = {
   eyebrow: "Quem conduz",
   title: "Experiência de quem já esteve [[na execução]]",
   paragraphs: [
-    "Há cerca de duas décadas, atuo na interseção entre meio ambiente, sustentabilidade e estratégia de negócio. Sou engenheira ambiental e construí minha trajetória em empresas de grande porte, liderando agendas que vão da operação ao corporativo, da proposição de estratégia à implantação de processos, com definição de metas e indicadores, com foco em sustentabilidade e mudanças climáticas.",
+    "Há cerca de duas décadas, atuo na interseção entre meio ambiente, sustentabilidade e estratégia de negócio. Sou formada em engenharia ambiental e construí minha trajetória em empresas de grande porte, liderando agendas que vão da operação ao corporativo, da proposição de estratégia à implantação de processos, com definição de metas e indicadores, com foco em sustentabilidade e mudanças climáticas.",
     "Conecto diretrizes à realidade da operação, com liderança humanizada e transparente, sem perder objetividade nem compromisso com resultado.",
   ],
   name: "Juliana Diniz Abreu Andrade",

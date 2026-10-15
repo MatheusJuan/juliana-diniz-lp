@@ -7,7 +7,6 @@ import JsonLd from "@/components/JsonLd";
 import Moments from "@/components/Moments";
 import Pillars from "@/components/Pillars";
 import Providers from "@/components/Providers";
-import Results from "@/components/Results";
 import Solutions from "@/components/Solutions";
 import Steps from "@/components/Steps";
 
@@ -28,7 +27,6 @@ export default function Home() {
         <Moments />
         <Steps />
         <Pillars />
-        <Results />
         <About />
         <FinalCta />
       </main>

@@ -7,6 +7,7 @@ import En from "./En";
 import Reveal from "./Reveal";
 import SplitText from "./SplitText";
 
+// Seção oculta: não é renderizada em app/page.tsx (a cliente pediu para retirar "Resultados do mercado").
 const N = results.items.length;
 const STEP_SVH = 80; // quanto de rolagem cada card consome (entra virado, desvira, segura, sai)
 

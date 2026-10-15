@@ -9,24 +9,20 @@ export default function Pillars() {
   return (
     <Section id="jeito" className="isolate bg-cream">
       <BgImage src="/images/pillars-bg.webp" sizes="100vw" className="hidden md:block" />
-      <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-5">
+      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-12 lg:gap-y-12">
+        <div className="lg:col-span-12">
           <Reveal>
             <p className="eyebrow mb-6 text-navy/60">{pillars.eyebrow}</p>
           </Reveal>
-          <SplitText
-            as="h2"
-            text={pillars.title}
-            highlightClassName="text-sage"
-            className="h2 max-w-[12ch] md:max-w-[18ch]"
-          />
-          <Reveal delay={0.2}>
-            <span className="mt-8 block h-px w-14 bg-sage" />
-            <p className="lead mt-8 max-w-[22rem] text-navy/75">{pillars.lead}</p>
-          </Reveal>
+          <SplitText as="h2" text={pillars.title} highlightClassName="text-sage" className="h2" />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:col-span-7">
+        <Reveal delay={0.2} className="lg:col-span-5">
+          <span className="block h-px w-14 bg-sage" />
+          <p className="lead mt-8 max-w-[22rem] text-navy/75">{pillars.lead}</p>
+        </Reveal>
+
+        <div className="mt-6 grid sm:grid-cols-2 lg:col-span-7 lg:mt-0">
           {pillars.items.map((p, i) => (
             <Reveal
               key={p.title}
