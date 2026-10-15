@@ -5,7 +5,7 @@ import Image from "next/image";
 import { about, LINKEDIN } from "@/lib/content";
 import BgImage from "./BgImage";
 import Reveal from "./Reveal";
-import Section, { Placeholder } from "./Section";
+import Section from "./Section";
 import SplitText from "./SplitText";
 
 export default function About() {
@@ -78,9 +78,27 @@ export default function About() {
         ))}
       </ul>
 
-      <Reveal className="relative mt-8">
-        <Placeholder className="text-sage-300">{about.placeholder}</Placeholder>
-      </Reveal>
+      {/* Formação em destaque e, abaixo, as duas certificações */}
+      <ul className="relative mt-6 grid gap-px overflow-hidden rounded-[2rem] bg-paper/10 md:mt-8 md:grid-cols-2">
+        <li className="bg-navy/75 transition-colors duration-500 hover:bg-navy-950/90 md:col-span-2">
+          <Reveal y={20} className="p-8 md:p-10">
+            <p className="eyebrow text-sage-300">{about.education.k}</p>
+            <h3 className="mt-4 font-serif text-[2rem] leading-tight md:text-[2.4rem]">{about.education.school}</h3>
+            <p className="mt-3 text-[1.02rem] leading-[1.7] text-paper/80">{about.education.degree}</p>
+            <p className="mt-1 text-[0.9rem] text-paper/50">{about.education.period}</p>
+          </Reveal>
+        </li>
+        {about.certifications.map((c, i) => (
+          <li key={c.title} className="bg-navy/75 transition-colors duration-500 hover:bg-navy-950/90">
+            <Reveal delay={i * 0.08} y={20} className="h-full p-8 md:p-10">
+              <p className="eyebrow text-sage-300">Certificação</p>
+              <h3 className="mt-4 font-serif text-[1.45rem] leading-snug md:text-[1.6rem]">{c.title}</h3>
+              <p className="mt-3 text-[0.95rem] leading-[1.7] text-paper/70">{c.issuer}</p>
+              <p className="mt-1 text-[0.85rem] text-paper/50">{c.date}</p>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

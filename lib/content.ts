@@ -297,7 +297,24 @@ export const about = {
     { k: "Liderança", t: "Equipe multidisciplinar nas áreas Humanas, Exatas e Biológicas." },
     { k: "Internacional", t: "Experiência em eventos relacionados ao tema de sustentabilidade: COP 16 (Colômbia), Equador e Costa Rica." },
   ],
-  placeholder: "Formação acadêmica, pós-graduação e certificações · a definir",
+  education: {
+    k: "Formação acadêmica",
+    school: "Faculdades Oswaldo Cruz",
+    degree: "Graduação em Engenharia Ambiental",
+    period: "2003 – 2007",
+  },
+  certifications: [
+    {
+      title: "Comitê ESG: Como fortalecer a pauta estratégica do conselho",
+      issuer: "IBGC · Instituto Brasileiro de Governança Corporativa",
+      date: "Emitida em jun. de 2022",
+    },
+    {
+      title: "Finanças Corporativas: Investimentos e Financiamentos Sustentáveis",
+      issuer: "FGV · Fundação Getulio Vargas",
+      date: "Emitida em ago. de 2026",
+    },
+  ],
 };
 
 export const faq = {

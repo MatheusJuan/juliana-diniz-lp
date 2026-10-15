@@ -9,7 +9,7 @@ npm run build
 ```
 
 - **WhatsApp:** número em `WHATSAPP.number`, `lib/content.ts` (DDI+DDD+número, só dígitos). Todos os CTAs usam esse link.
-- **Placeholders:** itens "a definir" no rodapé, FAQ e "Quem conduz" aguardam dados da cliente.
+- **Placeholders:** itens "a definir" no FAQ e na política de privacidade aguardam dados da cliente.
 - **Preloader:** `components/Preloader.tsx` (tempo mínimo em `MIN_MS`). Animação de texto: `SplitText.tsx` (palavras/letras sobem de dentro de uma máscara). Entrada de blocos: `Reveal.tsx`.
 - **Scroll suave:** Lenis (`components/Providers.tsx`, opções `lerp`/`wheelMultiplier`); trava durante o preloader e respeita `prefers-reduced-motion`. Âncoras (`#solucoes`) rolam suavemente.
 - **Cursor:** `components/Cursor.tsx`, só com mouse (ponteiro fino); ponto + anel, vira lente sálvia com seta sobre links/botões. Esconde o cursor nativo via classe `has-cursor` no `<html>`.
