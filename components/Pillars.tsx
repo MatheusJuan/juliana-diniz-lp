@@ -9,25 +9,28 @@ export default function Pillars() {
   return (
     <Section id="jeito" className="isolate bg-cream">
       <BgImage src="/images/pillars-bg.webp" sizes="100vw" className="hidden md:block" />
-      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-12 lg:gap-y-12">
-        <div className="lg:col-span-12">
+      <div className="grid gap-y-8 lg:gap-y-12">
+        <div>
           <Reveal>
             <p className="eyebrow mb-6 text-navy/60">{pillars.eyebrow}</p>
           </Reveal>
-          <SplitText as="h2" text={pillars.title} highlightClassName="text-sage" className="h2" />
+          <SplitText as="h2" text={pillars.title} className="h2" />
         </div>
 
-        <Reveal delay={0.2} className="lg:col-span-5">
-          <span className="block h-px w-14 bg-sage" />
-          <p className="lead mt-8 max-w-[22rem] text-navy/75">{pillars.lead}</p>
-        </Reveal>
+        {/* Texto de apoio e os dois cards na mesma linha (3 colunas); o texto tem o mesmo respiro dos cards para alinhar o topo. */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal delay={0.2} className="border-navy/10 sm:col-span-2 lg:col-span-1 lg:border-r">
+            <div className="pb-2 lg:py-10 lg:pr-8">
+              <span className="block h-px w-14 bg-sage" />
+              <p className="lead mt-8 max-w-[22rem] text-navy/75">{pillars.lead}</p>
+            </div>
+          </Reveal>
 
-        <div className="mt-6 grid sm:grid-cols-2 lg:col-span-7 lg:mt-0">
           {pillars.items.map((p, i) => (
             <Reveal
               key={p.title}
-              delay={i * 0.1}
-              className="border-navy/10 sm:odd:border-r sm:[&:nth-child(n+3)]:border-t"
+              delay={0.3 + i * 0.1}
+              className={`border-navy/10 ${i === 0 ? "sm:border-r" : ""}`}
             >
               <article className="group h-full px-0 py-8 sm:px-8 md:py-10">
                 <div className="flex items-start justify-between">

@@ -222,7 +222,7 @@ export const steps = {
 
 export const pillars = {
   eyebrow: "Jeito de trabalhar",
-  title: "[[Complementaridade]]",
+  title: "Complementaridade",
   lead: "Soluções construídas com a empresa, do planejamento à operação.",
   // "Complementaridade" e "Foco" saíram a pedido da cliente (14–15/10/2026); "Foco" já aparece em "Como funciona".
   items: [
