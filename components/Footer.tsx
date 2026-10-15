@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { footer, LINKEDIN, nav } from "@/lib/content";
+import { footer, LINKEDIN, nav, whatsappHref } from "@/lib/content";
 import { CookieSettingsButton } from "./CookieConsent";
-import { Placeholder } from "./Section";
 
 export default function Footer() {
   return (
@@ -45,11 +44,16 @@ export default function Footer() {
                 LinkedIn ↗
               </a>
             </li>
-            {footer.placeholders.map((p) => (
-              <li key={p}>
-                <Placeholder>{p}</Placeholder>
-              </li>
-            ))}
+            <li>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-sage-300/60 px-3.5 py-1.5 text-[0.7rem] uppercase tracking-[0.14em] transition-colors hover:bg-sage-300 hover:text-navy"
+              >
+                WhatsApp ↗
+              </a>
+            </li>
           </ul>
         </div>
       </div>

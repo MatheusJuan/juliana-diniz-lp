@@ -4,8 +4,8 @@
 export const LINKEDIN = "https://www.linkedin.com/in/juliana-diniz-abreu-andrade/";
 
 export const WHATSAPP = {
-  // [PLACEHOLDER] DDI + DDD + número, só dígitos. Ex.: 5511999999999
-  number: "",
+  // DDI + DDD + número, só dígitos.
+  number: "5511991567272",
   message:
     "Olá, Juliana! Vi sua página e gostaria de conversar sobre ESG e sustentabilidade na minha empresa.",
 };
@@ -346,9 +346,5 @@ export const finalCta = {
 
 export const footer = {
   tagline: "Integrando a sustentabilidade ao modelo de negócio, construindo o caminho juntos.",
-  placeholders: [
-    "WhatsApp · a definir",
-    "E-mail · a definir",
-  ],
   copyright: "© 2026 Juliana Diniz Sustentabilidade",
 };
