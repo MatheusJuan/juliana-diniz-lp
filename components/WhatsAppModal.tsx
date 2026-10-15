@@ -100,23 +100,27 @@ export default function WhatsAppModal() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 28, scale: 0.97 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative grid w-full max-w-[60rem] overflow-hidden rounded-[1.75rem] border border-paper/10 bg-navy-950 text-paper shadow-[0_40px_120px_-20px_rgba(0,0,0,0.7)] md:grid-cols-2"
+            className="relative grid max-h-[calc(100dvh-2rem)] w-full max-w-[60rem] grid-rows-[minmax(0,1fr)] overflow-hidden rounded-[1.75rem] border border-paper/10 bg-navy-950 text-paper shadow-[0_40px_120px_-20px_rgba(0,0,0,0.7)] md:grid-cols-2"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/hero-mobile.webp" alt="" width={1672} height={941} loading="lazy" className="hidden h-full w-full object-cover object-[50%_55%] md:block" />
+            {/* O botão fica no pop-up, não na coluna que rola: está sempre à vista. */}
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Fechar"
+              className="absolute right-3 top-3 z-10 grid h-11 w-11 place-items-center rounded-full border border-paper/20 bg-navy-950/80 text-paper transition-colors hover:border-paper/50 hover:bg-paper/10 md:right-5 md:top-5"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
 
-            <div className="relative p-7 md:p-12">
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label="Fechar"
-                className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full text-paper/80 transition-colors hover:bg-paper/10 hover:text-paper"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
-                  <path d="M6 6l12 12M18 6L6 18" />
-                </svg>
-              </button>
+            {/* A foto preenche a coluna sem ditar a altura do pop-up (a imagem é retrato e estourava a tela). */}
+            <div className="relative hidden md:block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/hero-mobile.webp" alt="" width={884} height={2000} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-[50%_88%]" />
+            </div>
 
+            <div data-lenis-prevent className="min-h-0 overflow-y-auto overscroll-contain p-7 md:p-12">
               <p className="eyebrow inline-block rounded-full border border-paper/40 px-4 py-2 text-[0.62rem] text-paper/90">{leadForm.eyebrow}</p>
               <h2 id="wa-title" className="mt-6 font-serif text-[clamp(2rem,3.6vw,2.9rem)] leading-[1.05] tracking-[-0.02em]">
                 {leadForm.title}
