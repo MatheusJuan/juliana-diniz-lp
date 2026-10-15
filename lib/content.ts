@@ -301,19 +301,11 @@ export const about = {
     k: "Formação acadêmica",
     school: "Faculdades Oswaldo Cruz",
     degree: "Graduação em Engenharia Ambiental",
-    period: "2003 – 2007",
   },
-  certifications: [
-    {
-      title: "Comitê ESG: Como fortalecer a pauta estratégica do conselho",
-      issuer: "IBGC · Instituto Brasileiro de Governança Corporativa",
-      date: "Emitida em jun. de 2022",
-    },
-    {
-      title: "Finanças Corporativas: Investimentos e Financiamentos Sustentáveis",
-      issuer: "FGV · Fundação Getulio Vargas",
-      date: "Emitida em ago. de 2026",
-    },
+  coursesLabel: "Cursos",
+  courses: [
+    { title: "Comitê ESG: Como fortalecer a pauta estratégica do conselho", issuer: "IBGC" },
+    { title: "Finanças Corporativas: Investimentos e Financiamentos Sustentáveis", issuer: "FGV" },
   ],
 };
 
