@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 import Section from "./Section";
 import SplitText from "./SplitText";
 
+// Seção oculta: não é renderizada em app/page.tsx (a cliente pediu para retirar "Jeito de trabalhar"); fica guardada, com `pillars` em content.ts.
 export default function Pillars() {
   return (
     <Section id="jeito" className="isolate bg-cream">

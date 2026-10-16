@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
 import { leadForm, WHATSAPP } from "@/lib/content";
 
+// Pop-up oculto: não é montado em Providers (a cliente preferiu contato direto, por telefone e e-mail, ao formulário). Fica guardado, com `leadForm` em content.ts.
 const OPEN_EVENT = "whatsapp-modal:open";
 
 // Usado nos links de WhatsApp: abre o pop-up; sem JavaScript o link segue direto para o WhatsApp.

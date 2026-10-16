@@ -5,7 +5,6 @@ import { ReactLenis, useLenis } from "lenis/react";
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import Cursor from "./Cursor";
 import Preloader from "./Preloader";
-import WhatsAppModal from "./WhatsAppModal";
 
 // `ready` vira true quando o preloader começa a sair; hero e header animam a partir daí.
 const ReadyContext = createContext(false);
@@ -33,7 +32,6 @@ export default function Providers({ children }: { children: ReactNode }) {
           <ScrollGate ready={ready} />
           <Preloader onExit={handleExit} />
           <Cursor />
-          <WhatsAppModal />
           {children}
         </ReadyContext.Provider>
       </ReactLenis>

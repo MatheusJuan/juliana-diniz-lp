@@ -2,9 +2,7 @@
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { useEffect, useState } from "react";
-import { nav, whatsappHref, hero } from "@/lib/content";
-import { ArrowIcon } from "./Button";
-import { openWhatsApp } from "./WhatsAppModal";
+import { nav } from "@/lib/content";
 import { useReady } from "./Providers";
 
 export default function Header() {
@@ -82,28 +80,16 @@ export default function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-3">
-              <a
-                href={whatsappHref}
-                onClick={openWhatsApp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group hidden items-center gap-3 whitespace-nowrap rounded-full bg-sage-600 px-6 py-3.5 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-paper transition-colors hover:bg-sage sm:inline-flex"
-              >
-                {hero.cta}
-                <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-              <button
-                type="button"
-                aria-label={open ? "Fechar menu" : "Abrir menu"}
-                aria-expanded={open}
-                onClick={() => setOpen((v) => !v)}
-                className="relative grid h-11 w-11 place-items-center rounded-full border border-navy/20 xl:hidden"
-              >
-                <span className={`absolute h-px w-4 bg-navy transition-transform duration-300 ${open ? "rotate-45" : "-translate-y-1"}`} />
-                <span className={`absolute h-px w-4 bg-navy transition-transform duration-300 ${open ? "-rotate-45" : "translate-y-1"}`} />
-              </button>
-            </div>
+            <button
+              type="button"
+              aria-label={open ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="relative grid h-11 w-11 place-items-center rounded-full border border-navy/20 xl:hidden"
+            >
+              <span className={`absolute h-px w-4 bg-navy transition-transform duration-300 ${open ? "rotate-45" : "-translate-y-1"}`} />
+              <span className={`absolute h-px w-4 bg-navy transition-transform duration-300 ${open ? "-rotate-45" : "translate-y-1"}`} />
+            </button>
           </div>
 
           <AnimatePresence>
@@ -126,19 +112,6 @@ export default function Header() {
                       {n.label}
                     </a>
                   ))}
-                  <a
-                    href={whatsappHref}
-                    onClick={(e) => {
-                      setOpen(false);
-                      openWhatsApp(e);
-                    }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center justify-center gap-3 rounded-full bg-sage-600 px-6 py-4 text-[0.74rem] font-medium uppercase tracking-[0.18em] text-paper sm:hidden"
-                  >
-                    {hero.cta}
-                    <ArrowIcon className="h-4 w-4" />
-                  </a>
                 </nav>
               </motion.div>
             )}

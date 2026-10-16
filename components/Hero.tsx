@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { hero, whatsappHref } from "@/lib/content";
+import { hero } from "@/lib/content";
 import Button from "./Button";
 import { useReady } from "./Providers";
 import Reveal from "./Reveal";
@@ -17,22 +17,22 @@ export default function Hero() {
 
   // Mobile: texto no topo (sobre a faixa marinho da foto), rosto no meio e botões embaixo, sem nada sobre o
   // rosto. A foto (884x2000: topo marinho chapado, cabelo em y 960, queixo em ~1220) é posicionada para o
-  // cabelo ficar logo abaixo do subtítulo (medido com offset, que ignora o transform do scroll) e cresce, se
+  // cabelo ficar logo abaixo do título (medido com offset, que ignora o transform do scroll) e cresce, se
   // preciso, para cobrir até o fim da tela (`scale`: px por px da foto original). Se a tela for baixa demais
   // para o conjunto, o hero cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
-  const subRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const [fit, setFit] = useState<{ top: number; need: number; scale: number; width: number } | null>(null);
   useEffect(() => {
-    const sub = subRef.current;
+    const title = titleRef.current;
     const cta = ctaRef.current;
-    const content = sub?.offsetParent as HTMLElement | null;
+    const content = title?.offsetParent as HTMLElement | null;
     const section = content?.parentElement;
-    if (!sub || !cta || !content || !section) return;
+    if (!title || !cta || !content || !section) return;
     const mq = window.matchMedia("(max-width: 767px)");
     const update = () => {
       if (!mq.matches) return setFit(null);
-      const hairAt = content.offsetTop + sub.offsetTop + sub.offsetHeight + 24; // onde o cabelo deve ficar
+      const hairAt = content.offsetTop + title.offsetTop + title.offsetHeight + 24; // onde o cabelo deve ficar
       const widthScale = section.clientWidth / 884;
       const head = (1240 - 960) * widthScale; // do cabelo ao pescoço, na escala da foto
       const need = Math.ceil(Math.max(660, hairAt + head + 20 + cta.offsetHeight + 72)); // 72 = respiro sob os botões
@@ -47,7 +47,7 @@ export default function Hero() {
     };
     update();
     const ro = new ResizeObserver(update);
-    ro.observe(sub);
+    ro.observe(title);
     ro.observe(content);
     mq.addEventListener("change", update);
     document.fonts?.ready.then(update);
@@ -96,7 +96,7 @@ export default function Hero() {
         style={{ y: textY, opacity: fade }}
         className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col px-6 pb-[4.5rem] pt-28 md:justify-center md:px-12 md:pb-16 md:pt-24"
       >
-        <div className="md:max-w-[min(49vw,760px)]">
+        <div ref={titleRef} className="md:max-w-[min(49vw,760px)]">
           <Reveal waitForReady delay={0.1} y={16}>
             {/* Sempre em uma linha: no mobile a fonte acompanha a largura da tela e o espaçamento entre letras diminui. */}
             <p className="eyebrow mb-4 whitespace-nowrap text-[clamp(0.5rem,calc((100vw-3rem)/30),0.72rem)] tracking-[0.12em] text-paper/80 md:mb-8 md:text-[0.72rem] md:tracking-[0.3em]">
@@ -115,16 +115,9 @@ export default function Hero() {
           />
         </div>
 
-        {/* Mobile: subtítulo junto do título (grupo único no topo) e CTAs no pé da tela */}
-        <div ref={subRef} className="mt-5 md:mt-10 md:max-w-[min(44vw,620px)]">
-          <p className="max-w-[34rem] text-[0.92rem] leading-[1.5] text-paper/90 md:text-[1.18rem] md:leading-[1.65]">
-            {hero.subtitle}
-          </p>
-        </div>
-
+        {/* Mobile: CTA no pé da tela */}
         <Reveal waitForReady delay={0.4} className="mt-auto pt-5 md:mt-10 md:pt-0">
           <div ref={ctaRef} className="flex flex-col gap-3 sm:flex-row">
-            <Button href={whatsappHref}>{hero.cta}</Button>
             <Button href="#solucoes" variant="outline">
               {hero.ctaSecondary}
             </Button>

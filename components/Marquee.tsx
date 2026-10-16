@@ -1,6 +1,7 @@
 import { marquee } from "@/lib/content";
 import En from "./En";
 
+// Oculto: não é renderizado (a cliente pediu para retirar o carrossel de palavras de Soluções); fica guardado, com `marquee` em content.ts.
 // Faixa contínua com os temas de atuação, em cápsula creme com letras marinho (a lista é duplicada para o loop não ter emenda).
 export default function Marquee() {
   const items = [...marquee, ...marquee];

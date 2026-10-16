@@ -47,9 +47,6 @@ export const nav = [
 export const hero = {
   eyebrow: "Consultoria em sustentabilidade e ESG",
   title: "Integrando a sustentabilidade [[ao modelo de negócio,]] construindo o caminho juntos.",
-  subtitle:
-    "Requisitos de clientes, mercado financeiro, índices ou estratégia global sobre os aspectos ESG? Assessoramos a implantação da sustentabilidade na estratégia do seu negócio e conduzimos a execução ao lado do seu time.",
-  cta: "Vamos conversar",
   ctaSecondary: "Conheça as soluções",
   credibility: "Mais de 20 anos atuando de forma integrada na operação e na estratégia do negócio.",
 };
@@ -172,7 +169,6 @@ export const solutions = {
     },
   ],
   closing: "Preparar-se antes dá tempo de escolher o caminho.",
-  cta: "Falar sobre a minha necessidade",
 };
 
 export const moments = {
@@ -192,14 +188,12 @@ export const moments = {
   ],
   common:
     "Nos dois formatos, apoio ao atendimento das demandas ESG de clientes, do mercado financeiro, de índices e reportes ou de uma estratégia global.",
-  cta: "Conversar sobre o meu momento",
 };
 
 export const steps = {
   eyebrow: "Como funciona",
   title: "Um caminho [[construído junto]]",
   note: "É sobre uma jornada: caminhar, aprender e aprimorar continuamente.",
-  cta: "Começar pela conversa",
   items: [
     {
       title: "Escuta",
@@ -349,8 +343,12 @@ export const faq = {
 
 export const finalCta = {
   title: "Vamos juntos construir o [[próximo passo.]]",
-  text: "Conte o momento da sua empresa. A conversa começa pelo WhatsApp, sem formulário.",
-  button: "Conversar no WhatsApp",
+  text: "Conte o momento da sua empresa. Fale direto com a Juliana, por telefone ou e-mail.",
+  phoneLabel: "Telefone e WhatsApp",
+  phone: "+55 11 99156-7272",
+  emailLabel: "E-mail",
+  // [PLACEHOLDER] e-mail da cliente: enquanto vazio, a página mostra o selo "a definir".
+  email: "",
 };
 
 export const footer = {

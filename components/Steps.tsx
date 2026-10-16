@@ -2,9 +2,8 @@
 
 import { motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { useRef, useState } from "react";
-import { steps, whatsappHref } from "@/lib/content";
+import { steps } from "@/lib/content";
 import BgImage from "./BgImage";
-import Button from "./Button";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import SplitText from "./SplitText";
@@ -40,9 +39,6 @@ export default function Steps() {
             <Reveal delay={0.2}>
               <p className="lead mt-8 max-w-[26rem] text-paper/75">{steps.note}</p>
             </Reveal>
-            <Reveal delay={0.3} className="mt-10 hidden lg:block">
-              <Button href={whatsappHref}>{steps.cta}</Button>
-            </Reveal>
           </div>
         </div>
 
@@ -73,9 +69,6 @@ export default function Steps() {
               </li>
             ))}
           </ol>
-          <div className="mt-12 lg:hidden">
-            <Button href={whatsappHref}>{steps.cta}</Button>
-          </div>
         </div>
       </div>
     </Section>

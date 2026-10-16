@@ -1,8 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { whatsappHref } from "@/lib/content";
-import { openWhatsApp } from "./WhatsAppModal";
 
 export function ArrowIcon({ className = "" }: { className?: string }) {
   return (
@@ -30,7 +28,6 @@ export default function Button({ href, children, variant = "primary", className 
   return (
     <a
       href={href}
-      onClick={href === whatsappHref ? openWhatsApp : undefined}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`group inline-flex max-w-full items-center justify-center gap-3 rounded-full text-center md:whitespace-nowrap px-7 py-4 text-[0.74rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${variants[variant]} ${className}`}
     >

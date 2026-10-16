@@ -1,6 +1,5 @@
-import { moments, whatsappHref } from "@/lib/content";
+import { moments } from "@/lib/content";
 import BgImage from "./BgImage";
-import Button from "./Button";
 import En from "./En";
 import Reveal from "./Reveal";
 import Section from "./Section";
@@ -41,11 +40,8 @@ export default function Moments() {
         })}
       </div>
 
-      <Reveal className="mt-14 flex flex-col items-center gap-8 text-center">
+      <Reveal className="mt-14 flex flex-col items-center text-center">
         <p className="max-w-[40rem] text-[1.02rem] leading-[1.7] text-navy/70">{moments.common}</p>
-        <Button href={whatsappHref} variant="outline-dark">
-          {moments.cta}
-        </Button>
       </Reveal>
     </Section>
   );

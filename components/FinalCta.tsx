@@ -3,9 +3,8 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { finalCta, whatsappHref } from "@/lib/content";
-import Button from "./Button";
 import Reveal from "./Reveal";
-import Section from "./Section";
+import Section, { Placeholder } from "./Section";
 import SplitText from "./SplitText";
 
 export default function FinalCta() {
@@ -32,10 +31,32 @@ export default function FinalCta() {
           <Reveal delay={0.2}>
             <p className="lead mx-auto mt-10 max-w-[32rem] text-paper/75">{finalCta.text}</p>
           </Reveal>
-          <Reveal delay={0.3} className="mt-12 flex justify-center">
-            <Button href={whatsappHref} className="px-9 py-5">
-              {finalCta.button}
-            </Button>
+          {/* Contato direto (sem formulário): telefone/WhatsApp e e-mail */}
+          <Reveal delay={0.3} className="mx-auto mt-14 grid max-w-[40rem] gap-10 md:grid-cols-2 md:gap-0">
+            <div className="md:border-r md:border-paper/15 md:px-8">
+              <p className="eyebrow text-sage-300">{finalCta.phoneLabel}</p>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:text-[1.9rem]"
+              >
+                {finalCta.phone}
+              </a>
+            </div>
+            <div className="md:px-8">
+              <p className="eyebrow text-sage-300">{finalCta.emailLabel}</p>
+              {finalCta.email ? (
+                <a
+                  href={`mailto:${finalCta.email}`}
+                  className="mt-3 inline-block break-all font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:text-[1.9rem]"
+                >
+                  {finalCta.email}
+                </a>
+              ) : (
+                <Placeholder className="mt-3 text-sage-300">a definir</Placeholder>
+              )}
+            </div>
           </Reveal>
         </div>
       </div>
