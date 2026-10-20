@@ -20,7 +20,7 @@ const useFinePointer = () =>
 type Mode = "idle" | "link" | "down";
 
 // Contorno marinho dos dois lados da linha sálvia: o cursor lê bem sobre fundo escuro, areia ou foto.
-const RING_SHADOW = "0 0 0 1.5px rgba(8,26,41,0.7), inset 0 0 0 1.5px rgba(8,26,41,0.7), 0 6px 28px rgba(8,26,41,0.28)";
+const RING_SHADOW = "0 0 0 1.5px rgba(8,26,41,0.5), inset 0 0 0 1.5px rgba(8,26,41,0.5), 0 6px 28px rgba(8,26,41,0.2)";
 
 /**
  * Cursor customizado nas cores da marca: setinha com a ponta no ponto exato, sem anel. Sobre links e botões
@@ -100,9 +100,9 @@ export default function Cursor() {
             className="absolute inset-0 h-full w-full rounded-full border-2 border-sage-300"
             initial={false}
             animate={{
-              scale: link ? 1.9 : 0.4,
+              scale: link ? 1.15 : 0.4,
               opacity: link ? 1 : 0,
-              backgroundColor: link ? "rgba(169,189,175,0.94)" : "rgba(169,189,175,0)",
+              backgroundColor: link ? "rgba(169,189,175,0.5)" : "rgba(169,189,175,0)",
             }}
             style={{ boxShadow: RING_SHADOW }}
             transition={{ type: "spring", stiffness: 320, damping: 24 }}
