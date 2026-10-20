@@ -7,7 +7,10 @@ import { useReady } from "./Providers";
 import Reveal from "./Reveal";
 import SplitText from "./SplitText";
 
-// Abertura alternativa, sem foto: a logo grande como imagem principal (usada só em /capa-logo).
+// Abertura alternativa, sem foto: a logo grande como imagem principal. INATIVA: nada importa este arquivo
+// (a rota /capa-logo, criada para a cliente comparar as duas capas, foi desativada). Para usar como capa:
+// trocar `<Hero />` por `<HeroLogo />` em Landing.tsx. Para voltar a comparar as duas, recriar a rota
+// app/capa-logo/page.tsx (modelo no commit 221c138) passando a opção para o Landing.
 export default function HeroLogo() {
   const ready = useReady();
   const { scrollY } = useScroll();

@@ -3,15 +3,13 @@ import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import HeroLogo from "@/components/HeroLogo";
 import JsonLd from "@/components/JsonLd";
 import Moments from "@/components/Moments";
 import Providers from "@/components/Providers";
 import Solutions from "@/components/Solutions";
 import Steps from "@/components/Steps";
 
-// `capa` escolhe a abertura: "foto" (/) ou "logo" (/capa-logo, só para a cliente comparar as duas).
-export default function Landing({ capa = "foto" }: { capa?: "foto" | "logo" }) {
+export default function Landing() {
   return (
     <Providers>
       <JsonLd />
@@ -23,7 +21,7 @@ export default function Landing({ capa = "foto" }: { capa?: "foto" | "logo" }) {
       </a>
       <Header />
       <main id="conteudo" className="relative">
-        {capa === "logo" ? <HeroLogo /> : <Hero />}
+        <Hero />
         <Solutions />
         <Moments />
         <Steps />
