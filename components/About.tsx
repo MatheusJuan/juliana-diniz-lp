@@ -77,30 +77,6 @@ export default function About() {
           </li>
         ))}
       </ul>
-
-      {/* Formação em destaque e, abaixo, os dois cursos, em selos simples (mesmo desenho do antigo selo "a definir") */}
-      <div className="relative mt-8 space-y-3">
-        <Reveal>
-          <div className="inline-block rounded-3xl border border-sage-300 bg-sage-300/10 px-6 py-4">
-            <p className="eyebrow text-sage-300">{about.education.k}</p>
-            <p className="mt-2 text-[1.05rem] text-paper">{about.education.degree}</p>
-            <p className="text-[0.85rem] text-paper/60">{about.education.school}</p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="eyebrow pt-5 text-sage-300">{about.coursesLabel}</p>
-        </Reveal>
-        <div className="flex flex-wrap gap-3">
-          {about.courses.map((c, i) => (
-            <Reveal key={c.title} delay={0.1 + i * 0.08}>
-              <div className="rounded-3xl border border-paper/25 px-5 py-3">
-                <p className="text-[0.9rem] text-paper/90">{c.title}</p>
-                <p className="text-[0.75rem] text-paper/55">{c.issuer}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
     </Section>
   );
 }

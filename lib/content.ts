@@ -45,7 +45,7 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Consultoria em sustentabilidade e ESG",
+  eyebrow: "Consultoria em sustentabilidade",
   title: "Integrando a sustentabilidade [[ao modelo de negócio,]] construindo o caminho juntos.",
   ctaSecondary: "Conheça as soluções",
   credibility: "Mais de 20 anos atuando de forma integrada na operação e na estratégia do negócio.",
@@ -290,16 +290,6 @@ export const about = {
     { k: "Responsabilidade Social", t: "Coordenação das áreas de Responsabilidade Social e Comunicação." },
     { k: "Liderança", t: "Equipe multidisciplinar nas áreas Humanas, Exatas e Biológicas." },
     { k: "Internacional", t: "Experiência em eventos relacionados ao tema de sustentabilidade: COP 16 (Colômbia), Equador e Costa Rica." },
-  ],
-  education: {
-    k: "Formação acadêmica",
-    school: "Faculdades Oswaldo Cruz",
-    degree: "Graduação em Engenharia Ambiental",
-  },
-  coursesLabel: "Cursos",
-  courses: [
-    { title: "Comitê ESG: Como fortalecer a pauta estratégica do conselho", issuer: "IBGC" },
-    { title: "Finanças Corporativas: Investimentos e Financiamentos Sustentáveis", issuer: "FGV" },
   ],
 };
 
