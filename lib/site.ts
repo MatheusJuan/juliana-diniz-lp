@@ -1,7 +1,7 @@
-// Configuração de SEO/domínio. O domínio final (julianadinizesg.com.br) ainda não está ativo:
-// em staging, defina NEXT_PUBLIC_SITE_URL com a URL real e NEXT_PUBLIC_NOINDEX=true.
+// Configuração de SEO/domínio. O domínio final é www.judiniz.com.br (o judiniz.com.br sem www redireciona para ele).
+// Em staging, defina NEXT_PUBLIC_SITE_URL com a URL real e NEXT_PUBLIC_NOINDEX=true.
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://julianadinizesg.com.br").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.judiniz.com.br").replace(/\/$/, "");
 export const SITE_HOST = new URL(SITE_URL).host;
 export const INDEXABLE = process.env.NEXT_PUBLIC_NOINDEX !== "true";
 // Projeto Microsoft Clarity (o ID aparece no código-fonte de qualquer página que o use; não é segredo).

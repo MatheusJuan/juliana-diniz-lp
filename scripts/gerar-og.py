@@ -46,6 +46,6 @@ for line in [[("ESG que sai do", 0)], [("papel e entra na", 0)], [("estratégia 
         d.text((x, y), text, font=goudy, fill=SAGE300 if hl else (252, 253, 253))
         x += d.textlength(text + " ", font=goudy)
     y += 74
-d.text((64, H - 52), "julianadinizesg.com.br", font=mont, fill=SAGE300)
+d.text((64, H - 52), "judiniz.com.br", font=mont, fill=SAGE300)
 bg.save("public/og.jpg", quality=88, optimize=True, progressive=True)
 print("public/og.jpg gerado")

@@ -18,11 +18,11 @@ npm run build
 
 ## SEO, segurança e domínio
 
-Domínio final previsto: `https://julianadinizesg.com.br` (ainda não ativo). Tudo é derivado de `lib/site.ts`.
+Domínio final: `https://www.judiniz.com.br` (o `judiniz.com.br` sem www redireciona para ele). Tudo é derivado de `lib/site.ts`.
 
 | Variável | Uso |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | URL pública (canonical, OG, sitemap, JSON-LD). Padrão: `https://julianadinizesg.com.br`. |
+| `NEXT_PUBLIC_SITE_URL` | URL pública (canonical, OG, sitemap, JSON-LD). Padrão: `https://www.judiniz.com.br`. |
 | `NEXT_PUBLIC_CLARITY_ID` | ID do projeto Microsoft Clarity. Padrão em `lib/site.ts` (`z0p0bccxsr`); definido e vazio desliga a análise. O script só carrega após o "Aceitar" do banner (`components/CookieConsent.tsx`). Também libera o Clarity na CSP. |
 | `NEXT_PUBLIC_NOINDEX=true` | Staging: robots.txt `Disallow: /`, meta `noindex` e header `X-Robots-Tag`. |
 
@@ -30,7 +30,7 @@ Domínio final previsto: `https://julianadinizesg.com.br` (ainda não ativo). Tu
 - **JSON-LD:** `components/JsonLd.tsx` (WebSite, WebPage, Organization/ProfessionalService, Person, Service/OfferCatalog; o FAQPage saiu junto com a seção de perguntas), montado a partir de `lib/content.ts`. Quando houver número de WhatsApp, entra `contactPoint`; o LinkedIn entra como `sameAs` da Person.
 - **Arquivos gerados:** `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, ícones (`app/icon.svg`, `app/apple-icon.png`, `app/favicon.ico`, `public/icon-192.png`, `public/icon-512.png`) e `app/not-found.tsx`. Atualizar `LAST_MODIFIED` em `lib/site.ts` quando o conteúdo mudar.
 - **Headers de segurança e redirects:** `next.config.ts` (HSTS, CSP em produção, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP/COEP). A CSP mantém `'unsafe-inline'` em script e style porque a página é estática; endurecer exige nonce com renderização dinâmica.
-- **HTTPS forçado:** o redirect `http→https` e `www→apex` está no `next.config.ts` e depende do proxy enviar `x-forwarded-proto`. Na hospedagem, ative também "forçar HTTPS" e o redirect de www.
+- **HTTPS forçado:** o redirect `http→https` e o da variante sem www para `www.judiniz.com.br` estão no `next.config.ts` e depende do proxy enviar `x-forwarded-proto`. Na hospedagem, ative também "forçar HTTPS" e o redirect de www.
 - **Depois do domínio ativo:** testar em securityheaders.com e no Rich Results Test; considerar HSTS preload (hstspreload.org) só quando todos os subdomínios estiverem em HTTPS.
 
 ## Scripts

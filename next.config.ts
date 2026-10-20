@@ -72,10 +72,10 @@ const nextConfig: NextConfig = {
         destination: "https://:host/:path*",
         permanent: true,
       },
-      // www → domínio sem www (evita conteúdo duplicado).
+      // A outra variante do domínio (com ou sem www) → a oficial, SITE_HOST (evita conteúdo duplicado).
       {
         source: "/:path*",
-        has: [{ type: "host", value: `www.${SITE_HOST}` }],
+        has: [{ type: "host", value: SITE_HOST.startsWith("www.") ? SITE_HOST.slice(4) : `www.${SITE_HOST}` }],
         destination: `https://${SITE_HOST}/:path*`,
         permanent: true,
       },
