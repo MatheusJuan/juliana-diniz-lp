@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
-import { INDEXABLE, SITE_HOST } from "./lib/site";
+import { CLARITY_ID, INDEXABLE, SITE_HOST } from "./lib/site";
 
 const isProd = process.env.NODE_ENV === "production";
 // Microsoft Clarity (análise, só roda após o aceite do visitante): libera os domínios dele na CSP quando houver ID.
-const clarity = process.env.NEXT_PUBLIC_CLARITY_ID ? " https://www.clarity.ms https://scripts.clarity.ms" : "";
-const clarityData = process.env.NEXT_PUBLIC_CLARITY_ID ? " https://*.clarity.ms https://c.bing.com" : "";
+const clarity = CLARITY_ID ? " https://www.clarity.ms https://scripts.clarity.ms" : "";
+const clarityData = CLARITY_ID ? " https://*.clarity.ms https://c.bing.com" : "";
 
 // CSP só em produção (em dev o React precisa de eval e do websocket do HMR).
 // 'unsafe-inline' em script-src e style-src é necessário: o Next injeta scripts inline de hidratação e o

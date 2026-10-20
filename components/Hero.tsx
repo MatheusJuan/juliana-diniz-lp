@@ -18,7 +18,9 @@ export default function Hero() {
   // Mobile: texto no topo (sobre a faixa marinho da foto), rosto no meio e botões embaixo, sem nada sobre o
   // rosto. A foto (884x2000: topo marinho chapado, cabelo em y 960, queixo em ~1220) é posicionada para o
   // cabelo ficar logo abaixo do título (medido com offset, que ignora o transform do scroll) e cresce, se
-  // preciso, para cobrir até o fim da tela (`scale`: px por px da foto original). Se a tela for baixa demais
+  // preciso, para cobrir até o fim da tela (`scale`: px por px da foto original). A posição vai por `transform`
+  // (não por top/left/width): mexer no layout depois da hidratação contava como layout shift (CLS 0,39 no
+  // Lighthouse mobile); transform não conta. Se a tela for baixa demais
   // para o conjunto, o hero cresce (`need`) e o sticky só trava quando o fundo dele encosta no fim da tela.
   const titleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -78,11 +80,16 @@ export default function Hero() {
               alt="Juliana Diniz, consultora em sustentabilidade e ESG"
               className="absolute left-0 top-0 h-auto w-full max-w-none md:static md:block md:h-full md:object-cover md:object-[70%_22%]"
               style={
-                fit ? { width: 884 * fit.scale, left: (fit.width - 884 * fit.scale) / 2, top: fit.top } : undefined
+                fit
+                  ? {
+                      transformOrigin: "0 0",
+                      transform: `translate(${(fit.width - 884 * fit.scale) / 2}px, ${fit.top}px) scale(${(884 * fit.scale) / fit.width})`,
+                    }
+                  : undefined
               }
               fetchPriority="high"
-              width={1672}
-              height={941}
+              width={884}
+              height={2000}
             />
           </picture>
         </motion.div>

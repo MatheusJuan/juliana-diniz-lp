@@ -23,7 +23,7 @@ Domínio final previsto: `https://julianadinizesg.com.br` (ainda não ativo). Tu
 | Variável | Uso |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | URL pública (canonical, OG, sitemap, JSON-LD). Padrão: `https://julianadinizesg.com.br`. |
-| `NEXT_PUBLIC_CLARITY_ID` | ID do projeto Microsoft Clarity. Sem ele nenhum script de análise é carregado; com ele, só após o "Aceitar" do banner (`components/CookieConsent.tsx`). Também libera o Clarity na CSP. |
+| `NEXT_PUBLIC_CLARITY_ID` | ID do projeto Microsoft Clarity. Padrão em `lib/site.ts` (`z0p0bccxsr`); definido e vazio desliga a análise. O script só carrega após o "Aceitar" do banner (`components/CookieConsent.tsx`). Também libera o Clarity na CSP. |
 | `NEXT_PUBLIC_NOINDEX=true` | Staging: robots.txt `Disallow: /`, meta `noindex` e header `X-Robots-Tag`. |
 
 - **Metadados:** título, descrição, canonical, `hreflang pt-BR`, Open Graph e Twitter em `app/layout.tsx`. Imagem de compartilhamento: `public/og.jpg` (1200×630).

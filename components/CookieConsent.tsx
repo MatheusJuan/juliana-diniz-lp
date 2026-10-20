@@ -3,11 +3,10 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CLARITY_ID } from "@/lib/site";
 
 const KEY = "cookie-consent";
 const OPEN_EVENT = "cookie-consent:open";
-// Sem ID configurado, nada é carregado (o aviso aparece, mas não há rastreamento).
-const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 type Choice = "accepted" | "declined";
 type ClarityFn = ((...args: unknown[]) => void) & { q?: unknown[][] };
@@ -44,11 +43,20 @@ export default function CookieConsent() {
   useEffect(() => {
     const choice = readChoice();
     if (choice === "accepted") loadClarity();
-    // Espera o preloader sair antes de mostrar o aviso pela primeira vez.
-    const t = choice ? undefined : window.setTimeout(() => setOpen(true), 3500);
+    // O aviso só aparece depois da primeira interação (rolagem, toque, tecla ou clique) e nunca antes de 3,5 s,
+    // para esperar o preloader. Sozinho aos 3,5 s ele virava o LCP da página (maior texto da tela: ~4 s no
+    // Lighthouse, nota "ruim" em Core Web Vitals). Sem consentimento nada é rastreado, então não há pressa.
+    let t: number | undefined;
+    const FIRST = ["scroll", "pointerdown", "keydown", "touchstart"] as const;
+    const onFirst = () => {
+      for (const e of FIRST) window.removeEventListener(e, onFirst);
+      t = window.setTimeout(() => setOpen(true), Math.max(0, 3500 - performance.now()));
+    };
+    if (!choice) for (const e of FIRST) window.addEventListener(e, onFirst, { passive: true });
     const reopen = () => setOpen(true);
     window.addEventListener(OPEN_EVENT, reopen);
     return () => {
+      for (const e of FIRST) window.removeEventListener(e, onFirst);
       window.clearTimeout(t);
       window.removeEventListener(OPEN_EVENT, reopen);
     };

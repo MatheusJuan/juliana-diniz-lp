@@ -1,4 +1,4 @@
-import { about, solutions, whatsappHref, WHATSAPP, LINKEDIN } from "@/lib/content";
+import { about, finalCta, footer, solutions, whatsappHref, WHATSAPP, LINKEDIN } from "@/lib/content";
 import { LAST_MODIFIED, OG_IMAGE, SEO, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const id = (fragment: string) => `${SITE_URL}/#${fragment}`;
@@ -59,7 +59,9 @@ export default function JsonLd() {
         logo: { "@type": "ImageObject", url: abs("/icon-512.png"), width: 512, height: 512 },
         image: abs(OG_IMAGE.url),
         description: SEO.description,
-        slogan: "Vamos juntos",
+        slogan: footer.tagline,
+        ...(WHATSAPP.number ? { telephone: `+${WHATSAPP.number}` } : {}),
+        ...(finalCta.email ? { email: finalCta.email } : {}),
         founder: { "@id": id("person") },
         areaServed: { "@type": "Country", name: "Brasil" },
         knowsAbout: topics,
@@ -84,13 +86,14 @@ export default function JsonLd() {
                 {
                   "@type": "ContactPoint",
                   contactType: "sales",
+                  telephone: `+${WHATSAPP.number}`,
+                  ...(finalCta.email ? { email: finalCta.email } : {}),
                   url: whatsappHref,
                   availableLanguage: "pt-BR",
                 },
               ],
             }
           : {}),
-        // Quando o LinkedIn existir, adicionar: sameAs: ["https://www.linkedin.com/in/..."]
       },
       {
         "@type": "Person",
