@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Sorts_Mill_Goudy } from "next/font/google";
 import CookieConsent from "@/components/CookieConsent";
-import { INDEXABLE, OG_IMAGE, SEO, SITE_NAME, SITE_URL } from "@/lib/site";
+import { COMING_SOON, INDEXABLE, OG_IMAGE, SEO, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const serif = Sorts_Mill_Goudy({
@@ -64,7 +64,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
-        <CookieConsent />
+        {/* Sem o aviso na tela "Em breve": ela não usa análise nem cookies. */}
+        {!COMING_SOON && <CookieConsent />}
       </body>
     </html>
   );

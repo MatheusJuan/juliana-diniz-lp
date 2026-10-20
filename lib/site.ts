@@ -8,6 +8,9 @@ export const INDEXABLE = process.env.NEXT_PUBLIC_NOINDEX !== "true";
 // NEXT_PUBLIC_CLARITY_ID sobrescreve; vazio desliga. O script só carrega depois do "Aceitar" do banner de cookies.
 export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID ?? "z0p0bccxsr";
 
+// Tela "Em breve" no lugar da página inicial (components/ComingSoon.tsx). Para lançar o site: false.
+export const COMING_SOON = true;
+
 export const SITE_NAME = "Juliana Diniz Sustentabilidade";
 export const OG_IMAGE = { url: "/og.jpg", width: 1200, height: 630, alt: "Juliana Diniz, consultora em sustentabilidade e ESG" };
 
