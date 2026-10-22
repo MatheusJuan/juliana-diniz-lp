@@ -5,7 +5,7 @@ export const LINKEDIN = "https://www.linkedin.com/in/juliana-diniz-abreu-andrade
 
 export const WHATSAPP = {
   // DDI + DDD + número, só dígitos.
-  number: "5511991567272",
+  number: "5515991918629",
   message:
     "Olá, Juliana! Vi sua página e gostaria de conversar sobre ESG e sustentabilidade na minha empresa.",
 };
@@ -335,7 +335,7 @@ export const finalCta = {
   title: "Vamos juntos construir o [[próximo passo.]]",
   text: "Conte o momento da sua empresa. Fale direto com a Juliana, por telefone ou e-mail.",
   phoneLabel: "Telefone e WhatsApp",
-  phone: "+55 11 99156-7272",
+  phone: "+55 15 99191-8629",
   emailLabel: "E-mail",
   // [PLACEHOLDER] e-mail da cliente: enquanto vazio, a página mostra o selo "a definir".
   email: "",
