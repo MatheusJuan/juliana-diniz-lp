@@ -48,7 +48,6 @@ export const hero = {
   eyebrow: "Consultoria em sustentabilidade",
   title: "Integrando a sustentabilidade [[ao modelo de negócio,]] construindo o caminho juntos.",
   ctaSecondary: "Conheça as soluções",
-  credibility: "Mais de 20 anos atuando de forma integrada na operação e na estratégia do negócio.",
 };
 
 type Source = { label: string; href: string };

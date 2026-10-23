@@ -132,14 +132,6 @@ export default function Hero() {
         </Reveal>
       </motion.div>
 
-      {/* Destaque de credibilidade: só no desktop, à direita da foto */}
-      <Reveal waitForReady delay={0.5} y={10} className="absolute right-12 top-[30%] z-10 hidden w-[min(17vw,240px)] md:block">
-        <div className="flex gap-4 rounded-[1rem] border border-paper/15 bg-navy/55 p-4 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md lg:p-5">
-          <span aria-hidden className="w-0.5 shrink-0 bg-sage-300" />
-          <p className="font-serif text-[clamp(0.95rem,1.15vw,1.15rem)] leading-snug text-paper">{hero.credibility}</p>
-        </div>
-      </Reveal>
-
       <div aria-hidden className="absolute bottom-9 right-6 z-10 hidden items-center gap-3 md:right-12 md:flex">
         <span className="text-[0.66rem] uppercase tracking-[0.3em] text-paper/60">Role</span>
         <span className="relative block h-12 w-px overflow-hidden bg-paper/20">
