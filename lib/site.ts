@@ -9,7 +9,7 @@ export const INDEXABLE = process.env.NEXT_PUBLIC_NOINDEX !== "true";
 export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID ?? "z0p0bccxsr";
 
 // Tela "Em breve" no lugar da página inicial (components/ComingSoon.tsx). Para lançar o site: false.
-export const COMING_SOON = true;
+export const COMING_SOON = false;
 
 export const SITE_NAME = "Juliana Diniz Sustentabilidade";
 export const OG_IMAGE = { url: "/og.jpg", width: 1200, height: 630, alt: "Juliana Diniz, consultora em sustentabilidade e ESG" };
@@ -21,4 +21,4 @@ export const SEO = {
 };
 
 // Atualizar quando o conteúdo da página mudar (usado no sitemap e no JSON-LD).
-export const LAST_MODIFIED = "2026-10-20";
+export const LAST_MODIFIED = "2026-10-23";

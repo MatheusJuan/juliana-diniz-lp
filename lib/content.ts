@@ -331,14 +331,16 @@ export const faq = {
   ],
 };
 
+// [PLACEHOLDER] e-mail da cliente: enquanto vazio, o bloco de e-mail fica oculto na página (e some da frase de apoio). É só preencher.
+const FINAL_EMAIL = "";
+
 export const finalCta = {
   title: "Vamos juntos construir o [[próximo passo.]]",
-  text: "Conte o momento da sua empresa. Fale direto com a Juliana, por telefone ou e-mail.",
+  text: `Conte o momento da sua empresa. Fale direto com a Juliana, por telefone${FINAL_EMAIL ? ", WhatsApp ou e-mail" : " ou WhatsApp"}.`,
   phoneLabel: "Telefone e WhatsApp",
   phone: "+55 15 99191-8629",
   emailLabel: "E-mail",
-  // [PLACEHOLDER] e-mail da cliente: enquanto vazio, a página mostra o selo "a definir".
-  email: "",
+  email: FINAL_EMAIL,
 };
 
 export const footer = {
