@@ -34,7 +34,7 @@ export default function FinalCta() {
           {/* Contato direto (sem formulário): telefone/WhatsApp e, quando houver, e-mail */}
           <Reveal
             delay={0.3}
-            className={`mx-auto mt-14 grid max-w-[40rem] gap-10 ${finalCta.email ? "md:grid-cols-2 md:gap-0" : ""}`}
+            className={`mx-auto mt-14 grid max-w-[52rem] gap-10 ${finalCta.email ? "md:grid-cols-2 md:gap-0" : ""}`}
           >
             <div className={finalCta.email ? "md:border-r md:border-paper/15 md:px-8" : ""}>
               <p className="eyebrow text-sage-300">{finalCta.phoneLabel}</p>
@@ -42,7 +42,7 @@ export default function FinalCta() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:text-[1.9rem]"
+                className="mt-3 inline-block font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:text-[clamp(1.5rem,2.6vw,1.9rem)]"
               >
                 {finalCta.phone}
               </a>
@@ -52,7 +52,7 @@ export default function FinalCta() {
                 <p className="eyebrow text-sage-300">{finalCta.emailLabel}</p>
                 <a
                   href={`mailto:${finalCta.email}`}
-                  className="mt-3 inline-block break-all font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:text-[1.9rem]"
+                  className="mt-3 inline-block break-all font-serif text-[1.6rem] underline decoration-sage-300/50 underline-offset-8 transition-colors hover:text-sage-300 md:break-normal md:whitespace-nowrap md:text-[clamp(1.5rem,2.6vw,1.9rem)]"
                 >
                   {finalCta.email}
                 </a>
