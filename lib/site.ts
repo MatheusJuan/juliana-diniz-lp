@@ -21,4 +21,4 @@ export const SEO = {
 };
 
 // Atualizar quando o conteúdo da página mudar (usado no sitemap e no JSON-LD).
-export const LAST_MODIFIED = "2026-10-23";
+export const LAST_MODIFIED = "2026-10-29";

@@ -330,8 +330,8 @@ export const faq = {
   ],
 };
 
-// [PLACEHOLDER] e-mail da cliente: enquanto vazio, o bloco de e-mail fica oculto na página (e some da frase de apoio). É só preencher.
-const FINAL_EMAIL = "";
+// E-mail da cliente. Se ficar vazio, o bloco de e-mail some da última página e da frase de apoio.
+const FINAL_EMAIL = "contato@judiniz.com.br";
 
 export const finalCta = {
   title: "Vamos juntos construir o [[próximo passo.]]",
@@ -341,6 +341,9 @@ export const finalCta = {
   emailLabel: "E-mail",
   email: FINAL_EMAIL,
 };
+
+// CNPJ da empresa (usado na política de privacidade).
+export const CNPJ = "69.439.117/0001-72";
 
 export const footer = {
   tagline: "Integrando a sustentabilidade ao modelo de negócio, construindo o caminho juntos.",

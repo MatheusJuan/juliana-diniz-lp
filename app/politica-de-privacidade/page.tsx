@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieConsent";
-import { Placeholder } from "@/components/Section";
-import { footer } from "@/lib/content";
+import { CNPJ, finalCta, footer } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Política de privacidade",
@@ -13,6 +12,11 @@ export const metadata: Metadata = {
 const h2 = "mt-14 font-serif text-[1.7rem] leading-tight md:text-[2rem]";
 const p = "mt-4 leading-[1.8] text-navy/80";
 const ul = "mt-4 list-disc space-y-2 pl-6 leading-[1.8] text-navy/80 marker:text-sage";
+const mail = (
+  <a href={`mailto:${finalCta.email}`} className="underline decoration-sage/60 underline-offset-4 transition-colors hover:text-navy">
+    {finalCta.email}
+  </a>
+);
 
 export default function PrivacyPage() {
   return (
@@ -27,7 +31,7 @@ export default function PrivacyPage() {
         <p className="eyebrow mt-14 text-sage">Privacidade</p>
         <h1 className="mt-4 font-serif text-[clamp(2.4rem,6vw,3.6rem)] leading-[1.05] tracking-[-0.02em]">Política de privacidade</h1>
         <p className="mt-6 text-[0.85rem] tracking-wide text-navy/60">
-          Última atualização: <Placeholder className="text-sage-600">data a definir</Placeholder>
+          Última atualização: 29 de outubro de 2026
         </p>
         <p className={p}>
           Esta política explica, em linguagem simples, quais dados pessoais são tratados quando você visita este site e como você pode controlá-los,
@@ -39,11 +43,10 @@ export default function PrivacyPage() {
           A controladora dos dados é Juliana Diniz Abreu Andrade, que atua como Juliana Diniz Sustentabilidade.
         </p>
         <ul className={ul}>
+          <li>Razão social: Judiniz Sustentabilidade LTDA</li>
+          <li>CNPJ: {CNPJ}</li>
           <li>
-            Razão social e CNPJ: <Placeholder className="text-sage-600">a definir</Placeholder>
-          </li>
-          <li>
-            Contato para assuntos de privacidade: <Placeholder className="text-sage-600">e-mail a definir</Placeholder>
+            Contato para assuntos de privacidade: {mail}
           </li>
         </ul>
 
@@ -61,8 +64,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong className="font-medium text-navy">Dados técnicos de servidor:</strong> endereço IP, data e hora do acesso e navegador, registrados
-            pela hospedagem para manter o site seguro e funcionando. Provedor de hospedagem:{" "}
-            <Placeholder className="text-sage-600">a definir</Placeholder>.
+            pela hospedagem para manter o site seguro e funcionando. Provedor de hospedagem: Vercel.
           </li>
         </ul>
 
@@ -102,7 +104,7 @@ export default function PrivacyPage() {
         <ul className={ul}>
           <li>Microsoft (Clarity), apenas se você aceitar os cookies de análise.</li>
           <li>Meta (WhatsApp), quando você inicia uma conversa.</li>
-          <li>Provedor de hospedagem do site.</li>
+          <li>Vercel, provedor de hospedagem do site.</li>
         </ul>
         <p className={p}>
           Esses fornecedores podem tratar dados fora do Brasil, observadas as garantias do art. 33 da LGPD. Não vendemos dados pessoais.
@@ -110,8 +112,7 @@ export default function PrivacyPage() {
 
         <h2 className={h2}>6. Por quanto tempo guardamos</h2>
         <p className={p}>
-          Conversas de contato: pelo tempo necessário ao atendimento, à relação comercial e ao cumprimento de obrigações legais (prazo:{" "}
-          <Placeholder className="text-sage-600">a definir</Placeholder>). Dados de análise: pelo prazo de retenção da ferramenta, que são eliminados
+          Conversas de contato: pelo tempo necessário ao atendimento, à relação comercial e ao cumprimento de obrigações legais. Dados de análise: pelo prazo de retenção da ferramenta, que são eliminados
           depois disso.
         </p>
 
@@ -126,7 +127,7 @@ export default function PrivacyPage() {
           <li>revogar o consentimento e se opor a tratamentos feitos com base em legítimo interesse.</li>
         </ul>
         <p className={p}>
-          Para exercer qualquer desses direitos, escreva para <Placeholder className="text-sage-600">e-mail a definir</Placeholder>. Se entender que
+          Para exercer qualquer desses direitos, escreva para {mail}. Se entender que
           seus dados foram tratados de forma inadequada, você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD).
         </p>
 
