@@ -40,7 +40,7 @@ export default function PrivacyPage() {
 
         <h2 className={h2}>1. Quem é a responsável</h2>
         <p className={p}>
-          A controladora dos dados é Juliana Diniz Abreu Andrade, que atua como Juliana Diniz Sustentabilidade.
+          A controladora dos dados é a Judiniz Sustentabilidade LTDA, que atua sob o nome Juliana Diniz Sustentabilidade.
         </p>
         <ul className={ul}>
           <li>Razão social: Judiniz Sustentabilidade LTDA</li>
