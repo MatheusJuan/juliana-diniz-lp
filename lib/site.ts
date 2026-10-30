@@ -17,7 +17,7 @@ export const OG_IMAGE = { url: "/og.jpg", width: 1200, height: 630, alt: "Julian
 export const SEO = {
   title: "Juliana Diniz | Consultoria em Sustentabilidade",
   description:
-    "Consultoria em sustentabilidade e ESG: estratégia e governança, finanças sustentáveis, mudanças climáticas e relatórios ESG. Mais de 20 anos de experiência.",
+    "Consultoria em sustentabilidade: estratégia e governança, finanças sustentáveis, mudanças climáticas, relatórios e índices. Mais de 20 anos de experiência.",
 };
 
 // Atualizar quando o conteúdo da página mudar (usado no sitemap e no JSON-LD).
