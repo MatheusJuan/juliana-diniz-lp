@@ -37,15 +37,16 @@ logo = Image.open("scripts/assets/logo-horizontal-escuro.png").convert("RGBA")  
 bg.paste(logo, (64, 56), logo)
 mont = ImageFont.truetype(os.path.join(tmp, "Montserrat.ttf"), 20)
 mont.set_variation_by_axes([500])
-goudy = ImageFont.truetype(os.path.join(tmp, "Goudy.ttf"), 70)
-d.text((64, 214), "CONSULTORIA EM SUSTENTABILIDADE E ESG", font=mont, fill=(220, 226, 222))
-y = 262
-for line in [[("ESG que sai do", 0)], [("papel e entra na", 0)], [("estratégia do seu", 1)], [("negócio.", 0)]]:
+goudy = ImageFont.truetype(os.path.join(tmp, "Goudy.ttf"), 54)
+d.text((64, 214), "CONSULTORIA EM SUSTENTABILIDADE", font=mont, fill=(220, 226, 222))
+y = 258
+# Título do hero do site (lib/content.ts), com o trecho em destaque.
+for line in [[("Integrando a", 0)], [("sustentabilidade", 0)], [("ao modelo de negócio,", 1)], [("construindo o caminho", 0)], [("juntos.", 0)]]:
     x = 64
     for text, hl in line:
         d.text((x, y), text, font=goudy, fill=SAGE300 if hl else (252, 253, 253))
         x += d.textlength(text + " ", font=goudy)
-    y += 74
+    y += 58
 d.text((64, H - 52), "judiniz.com.br", font=mont, fill=SAGE300)
 bg.save("public/og.jpg", quality=88, optimize=True, progressive=True)
 print("public/og.jpg gerado")
